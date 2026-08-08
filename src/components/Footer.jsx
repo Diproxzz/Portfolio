@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, Heart, Sparkles } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -63,11 +63,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-3">
+        <div className="pt-6 flex items-center justify-center sm:justify-between text-xs text-slate-500 font-mono">
           <p>© 2026 Dipro Chowdhury. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built with React, Tailwind CSS & Framer Motion
-          </p>
         </div>
 
       </div>
