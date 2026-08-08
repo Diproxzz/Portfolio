@@ -1,40 +1,79 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Calendar, Award, CheckCircle2, BookOpen } from 'lucide-react';
+import { X, Calendar, Award, CheckCircle2, BookOpen, ArrowLeft } from 'lucide-react';
 
 export default function CertificateModal({ certificate, isOpen, onClose }) {
+  // Lock body scroll & listen for Escape key to close modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen || !certificate) return null;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-md">
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-md transition-all"
+        aria-modal="true"
+        role="dialog"
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
+          onClick={(e) => e.stopPropagation()}
           className="relative w-full max-w-4xl max-h-[90vh] bg-[#0f172a] border border-cyan-500/40 rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto"
         >
-          {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#080c14]/90 sticky top-0 z-20">
+          {/* Header Bar */}
+          <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-slate-800 bg-[#080c14]/95 sticky top-0 z-30 backdrop-blur-md">
+            <button
+              onClick={onClose}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 hover:text-white border border-cyan-500/30 transition-all font-medium text-xs sm:text-sm min-h-[40px]"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Back to Portfolio</span>
+            </button>
+
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                 {certificate.issuer}
               </span>
-              <h3 className="text-lg font-heading font-bold text-slate-100">{certificate.title}</h3>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700 transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center"
+                aria-label="Close certificate preview"
+                title="Close (Esc)"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-              aria-label="Close certificate modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
           </div>
 
           {/* Modal Content */}
           <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
             
+            {/* Title */}
+            <div>
+              <h3 className="text-2xl font-heading font-extrabold text-white">{certificate.title}</h3>
+              <p className="text-xs font-mono text-cyan-400 mt-1">{certificate.issuer} • {certificate.type}</p>
+            </div>
+
             {/* Image Preview Card */}
             {certificate.image && (
               <div className="relative w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-xl group">
@@ -79,6 +118,17 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
                 <Calendar className="w-4 h-4 text-cyan-400" />
                 Completion Date: <strong className="text-cyan-300">{certificate.date}</strong>
               </span>
+            </div>
+
+            {/* Bottom Return Button */}
+            <div className="pt-4 border-t border-slate-800 flex justify-end">
+              <button
+                onClick={onClose}
+                className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center gap-2 min-h-[44px]"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Return to Portfolio</span>
+              </button>
             </div>
 
           </div>
