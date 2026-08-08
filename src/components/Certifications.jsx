@@ -1,41 +1,125 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, Trophy, ExternalLink, Sparkles, Star } from 'lucide-react';
+import { Award, CheckCircle2, Trophy, ExternalLink, Sparkles, Eye, Bot, Database, Terminal, Cpu } from 'lucide-react';
+import CertificateModal from './CertificateModal';
 
 const certsAndAchievements = [
   {
+    id: 'google-ai',
+    title: 'Google AI Professional Certificate',
+    issuer: 'Google',
+    platform: 'Coursera',
+    type: 'Professional Certificate',
+    category: 'Generative AI & LLMs',
+    date: 'Jun 22, 2026',
+    description: 'Comprehensive 7-course specialization covering AI Fundamentals, Research & Insights, Content Creation, Data Analysis, App Building, and Vibe Coding custom AI solutions.',
+    courses: [
+      'AI Fundamentals',
+      'AI for Brainstorming & Planning',
+      'AI for Research & Insights',
+      'AI for Writing & Communicating',
+      'AI for Content Creation',
+      'AI for Data Analysis',
+      'AI for App Building'
+    ],
+    image: '/certificates/google-ai.png',
+    icon: Bot,
+    color: 'border-cyan-400/60 text-cyan-300',
+    badge: '7 Courses • Specialization'
+  },
+  {
+    id: 'google-data-analytics',
+    title: 'Google Data Analytics Professional Certificate',
+    issuer: 'Google',
+    platform: 'Coursera',
+    type: 'Professional Certificate',
+    category: 'Data Science & Analytics',
+    date: 'Jun 25, 2026',
+    description: 'Rigorous 9-course program demonstrating practical competency in Python, SQL, Tableau, Spreadsheets, Data Cleaning, Exploratory Analysis, and Capstone Case Studies.',
+    courses: [
+      'Foundations: Data, Data, Everywhere',
+      'Ask Questions to Make Data-Driven Decisions',
+      'Prepare Data for Exploration',
+      'Process Data from Dirty to Clean',
+      'Analyze Data to Answer Questions',
+      'Share Data Through the Art of Visualization',
+      'Introduction to Data Analysis Using Python',
+      'Google Data Analytics Capstone Case Study'
+    ],
+    image: '/certificates/google-data-analytics.png',
+    icon: Database,
+    color: 'border-blue-400/60 text-blue-300',
+    badge: '9 Courses • Specialization'
+  },
+  {
+    id: 'vanderbilt-prompt-engineering',
+    title: 'Prompt Engineering for ChatGPT',
+    issuer: 'Vanderbilt University',
+    platform: 'Coursera',
+    type: 'Course Certificate',
+    category: 'Generative AI',
+    date: 'Jun 25, 2026',
+    description: 'Authorized by Dr. Jules White (Prof. of CS at Vanderbilt University). Mastered advanced LLM prompt patterns, zero/few-shot prompting, and ChatGPT workflow automation.',
+    courses: [
+      'Advanced Prompt Patterns & Metaprompting',
+      'ChatGPT System Instructions & Personas',
+      'LLM Workflow Integration & Reasoning Controls'
+    ],
+    image: '/certificates/vanderbilt-prompt-engineering.png',
+    icon: Terminal,
+    color: 'border-amber-400/60 text-amber-300',
+    badge: 'Vanderbilt CS Dept.'
+  },
+  {
+    id: 'ardent-aiml',
     title: 'AI & Machine Learning Course',
     issuer: 'Ardent Computech Pvt. Ltd.',
+    platform: 'Industry Training',
     type: 'Certification',
-    category: 'AI / ML',
-    description: 'Comprehensive practical training covering Supervised & Unsupervised Learning, Feature Selection, Neural Networks, Python Data Science Stack (NumPy, Pandas, Matplotlib, Scikit-learn).',
+    category: 'Machine Learning',
     date: 'Certified',
-    icon: Award,
-    color: 'border-cyan-500/40 text-cyan-300'
+    description: 'Comprehensive practical training covering Supervised & Unsupervised Learning, Feature Selection, Neural Networks, and Python Data Science Stack (NumPy, Pandas, Scikit-learn).',
+    courses: ['Supervised Learning', 'Feature Selection', 'Neural Networks', 'Scikit-learn Stack'],
+    image: null,
+    icon: Cpu,
+    color: 'border-cyan-500/40 text-cyan-300',
+    badge: 'Industry Certified'
   },
   {
+    id: 'freecodecamp-web',
     title: 'Front-End Web Development Certification',
     issuer: 'freeCodeCamp',
+    platform: 'freeCodeCamp',
     type: 'Certification',
-    category: 'Web Dev',
-    description: 'Validated mastery in modern HTML5, CSS3, JavaScript (ES6+), Responsive Layout Design, Accessibility standards, and DOM manipulation.',
+    category: 'Web Engineering',
     date: 'Certified',
+    description: 'Validated mastery in modern HTML5, CSS3, JavaScript (ES6+), Responsive Layout Design, Web Accessibility standards, and DOM manipulation.',
+    courses: ['Responsive Web Design', 'JS Algorithms & Data Structures'],
+    image: null,
     icon: CheckCircle2,
-    color: 'border-blue-500/40 text-blue-300'
+    color: 'border-emerald-400/40 text-emerald-300',
+    badge: 'Verified Developer'
   },
   {
+    id: 'sih-hackathon',
     title: 'Top 5 Finalist — Smart India Hackathon (SIH)',
     issuer: 'College Level Competition',
+    platform: 'Hackathon',
     type: 'Achievement',
-    category: 'Hackathon',
-    description: 'Recognized as Top 5 Finalist for pitching and prototyping an innovative software solution addressing national problem statements under intense time constraints.',
+    category: 'Competitive Engineering',
     date: 'Top 5 Finalist',
+    description: 'Recognized as Top 5 Finalist for prototyping an innovative software solution addressing national problem statements under intense hackathon time constraints.',
+    courses: ['Rapid Prototyping', 'System Architecture', 'Hackathon Pitching'],
+    image: null,
     icon: Trophy,
-    color: 'border-amber-400/40 text-amber-300'
+    color: 'border-purple-400/40 text-purple-300',
+    badge: 'Top 5 Finalist'
   }
 ];
 
 export default function Certifications() {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   return (
     <section id="certifications" className="py-20 md:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,54 +137,79 @@ export default function Certifications() {
             <span>Recognitions & Credentials</span>
           </div>
           <h2 className="text-fluid-h2 font-heading font-extrabold text-white tracking-tight">
-            Certifications & <span className="gradient-text-cyan">Achievements</span>
+            Certifications & <span className="gradient-text-cyan">Credentials</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Continuous learning credentials and competitive software engineering recognition.
+            Verified industry certifications from Google, Vanderbilt University, and leading tech platforms.
           </p>
         </motion.div>
 
-        {/* Animated Checklist Reveal */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        {/* Credentials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {certsAndAchievements.map((item, index) => {
             const Icon = item.icon;
             return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800 flex flex-col sm:flex-row items-start gap-5 relative overflow-hidden group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card glass-card-hover rounded-2xl p-6 border border-slate-800 flex flex-col justify-between relative overflow-hidden group"
               >
-                {/* Icon Badge */}
-                <div className={`w-14 h-14 rounded-2xl bg-[#080c14] border ${item.color} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-7 h-7" />
-                </div>
+                <div>
+                  {/* Header Badge */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-[#080c14] border ${item.color} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
 
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="font-heading font-bold text-xl text-white group-hover:text-cyan-300 transition-colors">
-                      {item.title}
-                    </h3>
-                    <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60">
-                      {item.date}
+                    <span className="text-[11px] font-mono font-bold px-3 py-1 rounded-full bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 shadow-sm">
+                      {item.badge}
                     </span>
                   </div>
 
+                  {/* Title & Issuer */}
+                  <h3 className="font-heading font-bold text-lg text-white group-hover:text-cyan-300 transition-colors">
+                    {item.title}
+                  </h3>
+                  
                   <p className="text-xs font-mono text-cyan-400 mt-1">
-                    {item.issuer} • <span className="text-slate-400">{item.type}</span>
+                    {item.issuer} {item.platform && `• ${item.platform}`}
                   </p>
 
-                  <p className="mt-2.5 text-sm text-slate-300 leading-relaxed">
+                  <p className="mt-3 text-xs text-slate-300 leading-relaxed">
                     {item.description}
                   </p>
+                </div>
+
+                <div>
+                  {/* Footer Meta & Lightbox Action */}
+                  <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                    <span className="text-cyan-300/90 font-medium">{item.date}</span>
+
+                    {item.image && (
+                      <button
+                        onClick={() => setSelectedCert(item)}
+                        className="px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 transition-all flex items-center gap-1.5 min-h-[36px] font-semibold"
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>View Certificate</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
+
+        {/* Certificate Modal Lightbox */}
+        <CertificateModal
+          certificate={selectedCert}
+          isOpen={!!selectedCert}
+          onClose={() => setSelectedCert(null)}
+        />
 
       </div>
     </section>

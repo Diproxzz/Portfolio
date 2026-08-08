@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Printer, Briefcase, GraduationCap, Mail, Phone, MapPin, ExternalLink, Code2 } from 'lucide-react';
+import { X, Printer, Briefcase, GraduationCap, Mail, Phone, MapPin, ExternalLink, Code2, Award } from 'lucide-react';
 
 export default function ResumeModal({ isOpen, onClose }) {
   const [avatarError, setAvatarError] = useState(false);
@@ -83,8 +83,33 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Professional Summary
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
+                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Certified in Google AI, Google Data Analytics, and Vanderbilt Prompt Engineering. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
               </p>
+            </div>
+
+            {/* Industry Certifications */}
+            <div>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3 flex items-center gap-2">
+                <Award className="w-4 h-4" /> Professional Certifications
+              </h2>
+              <div className="grid gap-2.5 sm:grid-cols-2 text-xs">
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Google AI Professional Certificate</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">Google • 7 Courses Specialization (Jun 2026)</p>
+                </div>
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Google Data Analytics Professional Certificate</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">Google • 9 Courses Specialization (Jun 2026)</p>
+                </div>
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Prompt Engineering for ChatGPT</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">Vanderbilt University CS Dept. (Jun 2026)</p>
+                </div>
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">AI & Machine Learning Certification</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">Ardent Computech Pvt. Ltd.</p>
+                </div>
+              </div>
             </div>
 
             {/* Experience */}
@@ -140,10 +165,10 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Technical Skills
               </h2>
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div><strong className="text-white">Languages:</strong> Python, Java, C, HTML, CSS</div>
+                <div><strong className="text-white">Languages:</strong> Python, Java, C, HTML, CSS, SQL</div>
                 <div><strong className="text-white">AI/ML:</strong> LSTM RNN, NLP, Deep Learning, Feature Engineering</div>
-                <div><strong className="text-white">GenAI Tools:</strong> MS Copilot Studio, Synthesia</div>
-                <div><strong className="text-white">Testing & Automation:</strong> Selenium, Cucumber (BDD), TestNG, Maven</div>
+                <div><strong className="text-white">GenAI Tools:</strong> MS Copilot Studio, Synthesia, Prompt Engineering</div>
+                <div><strong className="text-white">Testing & Analytics:</strong> Selenium, Cucumber (BDD), Tableau, TestNG, Maven</div>
               </div>
             </div>
 
