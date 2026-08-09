@@ -15,6 +15,7 @@ const skillCategories = [
       { name: 'C', tag: 'Fundamentals', level: 'Intermediate' },
       { name: 'HTML', tag: 'Web', level: 'Proficient' },
       { name: 'CSS', tag: 'Web Styling', level: 'Proficient' },
+      { name: 'SQL', tag: 'Data Queries', level: 'Proficient' },
     ]
   },
   {
@@ -34,13 +35,16 @@ const skillCategories = [
   },
   {
     id: 'genai',
-    title: 'Generative AI Tools',
+    title: 'Generative AI & AI Tools',
     icon: Bot,
     color: 'from-emerald-400 to-cyan-500',
     borderColor: 'border-emerald-500/30',
     skills: [
+      { name: 'Google Antigravity', tag: 'AI Agentic IDE', level: 'Independent' },
+      { name: 'Cursor', tag: 'AI Code Editor', level: 'Independent' },
       { name: 'Microsoft Copilot Studio', tag: 'AI Chatbots & Workflows', level: 'Industry Applied' },
       { name: 'Synthesia', tag: 'AI Avatar Video Gen', level: 'Industry Applied' },
+      { name: 'Prompt Engineering', tag: 'Vanderbilt Certified', level: 'Certified' },
     ]
   },
   {
@@ -85,7 +89,7 @@ export default function Skills() {
             Technical <span className="gradient-text-cyan">Skill Set</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Bridging rigorous Automation Quality Engineering with cutting-edge Machine Learning and Generative AI technologies.
+            Bridging rigorous Automation Quality Engineering with cutting-edge Machine Learning and Generative AI tools like Antigravity & Cursor.
           </p>
 
           {/* Filter Pills */}
@@ -116,7 +120,7 @@ export default function Skills() {
           </div>
         </motion.div>
 
-        {/* Categories Grid (2-3 columns desktop, 1 col mobile) */}
+        {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredCategories.map((category, index) => {
             const Icon = category.icon;
@@ -148,7 +152,7 @@ export default function Skills() {
 
                 {/* Skill Badges / Pills */}
                 <div className="flex flex-wrap gap-2.5">
-                  {category.skills.map((skill, sIdx) => (
+                  {category.skills.map((skill) => (
                     <motion.div
                       key={skill.name}
                       whileHover={{ scale: 1.05, y: -2 }}

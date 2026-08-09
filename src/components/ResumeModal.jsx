@@ -43,12 +43,11 @@ export default function ResumeModal({ isOpen, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          onClick={(e) => e.stopPropagation()} // Prevent backdrop click when clicking inside card
+          onClick={(e) => e.stopPropagation()}
           className="relative w-full max-w-4xl max-h-[90vh] bg-[#0f172a] border border-cyan-500/40 rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto"
         >
           {/* Modal Top Navigation & Control Bar */}
           <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-slate-800 bg-[#080c14]/95 sticky top-0 z-30 backdrop-blur-md">
-            {/* Prominent Back to Portfolio Button */}
             <button
               onClick={onClose}
               className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 hover:text-white border border-cyan-500/30 transition-all font-medium text-xs sm:text-sm min-h-[40px]"
@@ -57,7 +56,6 @@ export default function ResumeModal({ isOpen, onClose }) {
               <span>Back to Portfolio</span>
             </button>
 
-            {/* Document Title & Print/Close Controls */}
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={handlePrint}
@@ -118,14 +116,14 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Professional Summary
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Certified in Google AI, Google Data Analytics, and Vanderbilt Prompt Engineering. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
+                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Independently builds agentic AI applications using Google Antigravity IDE & Cursor AI editor. Certified in Google AI, Google Data Analytics, Vanderbilt Prompt Engineering, freeCodeCamp, and Ardent Computech AI/ML Industrial Internship.
               </p>
             </div>
 
             {/* Industry Certifications */}
             <div>
               <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3 flex items-center gap-2">
-                <Award className="w-4 h-4" /> Professional Certifications
+                <Award className="w-4 h-4" /> Professional Certifications & Credentials
               </h2>
               <div className="grid gap-2.5 sm:grid-cols-2 text-xs">
                 <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
@@ -141,8 +139,16 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <p className="text-slate-400 text-[11px] mt-0.5">Vanderbilt University CS Dept. (Jun 2026)</p>
                 </div>
                 <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
-                  <h4 className="font-bold text-white">AI & Machine Learning Certification</h4>
-                  <p className="text-slate-400 text-[11px] mt-0.5">Ardent Computech Pvt. Ltd.</p>
+                  <h4 className="font-bold text-white">AI & Machine Learning Industrial Internship</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">Ardent Computech • Movie Recommendation System (Sep 2023)</p>
+                </div>
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Responsive Web Design Certification</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">freeCodeCamp • 300 Hours Verified (Apr 2023)</p>
+                </div>
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Smart India Hackathon (SIH 2023)</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">FIEM • Certificate of Participation (Sep 2023)</p>
                 </div>
               </div>
             </div>
@@ -165,6 +171,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <ul className="mt-3 space-y-2 text-xs text-slate-300 list-disc list-inside leading-relaxed">
                   <li>Completed 2.5-month training in Automation Testing (Java, Selenium, Cucumber), contributing to test design/execution for TATA 1mg and Alfred Health platforms in Agile sprints.</li>
                   <li>Independently explored Generative AI, building and deploying AI chatbots with Microsoft Copilot Studio for automated query handling and workflow integration.</li>
+                  <li>Leveraged modern AI development environments including Google Antigravity & Cursor AI code editor for vibe coding and rapid prototyping.</li>
                   <li>Created AI-generated training/stakeholder videos using Synthesia avatar technology.</li>
                 </ul>
               </div>
@@ -197,12 +204,12 @@ export default function ResumeModal({ isOpen, onClose }) {
             {/* Skills */}
             <div>
               <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-2">
-                Technical Skills
+                Technical Skills & Tools
               </h2>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div><strong className="text-white">Languages:</strong> Python, Java, C, HTML, CSS, SQL</div>
                 <div><strong className="text-white">AI/ML:</strong> LSTM RNN, NLP, Deep Learning, Feature Engineering</div>
-                <div><strong className="text-white">GenAI Tools:</strong> MS Copilot Studio, Synthesia, Prompt Engineering</div>
+                <div><strong className="text-white">GenAI & AI Tools:</strong> Google Antigravity, Cursor, MS Copilot Studio, Synthesia</div>
                 <div><strong className="text-white">Testing & Analytics:</strong> Selenium, Cucumber (BDD), Tableau, TestNG, Maven</div>
               </div>
             </div>
@@ -218,7 +225,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               </p>
             </div>
 
-            {/* Bottom Close Action Footer inside modal */}
+            {/* Bottom Close Action Footer */}
             <div className="pt-6 border-t border-slate-800 flex justify-end">
               <button
                 onClick={onClose}

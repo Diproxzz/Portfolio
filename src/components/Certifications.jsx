@@ -75,6 +75,32 @@ const certsAndAchievements = [
     badge: 'Vanderbilt CS Dept.'
   },
   {
+    id: 'ardent-aiml',
+    title: 'Data Science, AI & ML Industrial Internship',
+    issuer: 'Ardent Computech Pvt. Ltd.',
+    platform: 'Microsoft Partner / NEAT Certified',
+    type: 'Industrial Training & Internship',
+    category: 'Data Science & Machine Learning',
+    date: 'Sep 26, 2023',
+    description: 'Completed 1-month intensive Industrial Training & Internship on Data Science, AI, and Machine Learning using Python. Engineered & implemented the Movie Recommendation System.',
+    courses: [
+      'Industrial Training Certificate (Cert ID: ARDENT/2024/AD86910)',
+      'Industrial Internship Certificate (Cert ID: ARDENT/2024/AD86909)',
+      'Internship & Project Letter (Movie Recommendation System)',
+      'Python Data Science Stack (NumPy, Pandas, Scikit-Learn)'
+    ],
+    image: '/certificates/ardent-training.jpg',
+    images: [
+      { src: '/certificates/ardent-training.jpg', label: '1. Industrial Training Certificate' },
+      { src: '/certificates/ardent-internship.jpg', label: '2. Industrial Internship Certificate' },
+      { src: '/certificates/ardent-letter.jpg', label: '3. Internship & Project Letter' }
+    ],
+    verifyUrl: null,
+    icon: Cpu,
+    color: 'border-cyan-500/60 text-cyan-300',
+    badge: '3 Verified Documents'
+  },
+  {
     id: 'freecodecamp-web',
     title: 'Responsive Web Design Certification',
     issuer: 'freeCodeCamp',
@@ -105,22 +131,6 @@ const certsAndAchievements = [
     icon: Trophy,
     color: 'border-purple-400/60 text-purple-300',
     badge: 'SIH 2023 Hackathon'
-  },
-  {
-    id: 'ardent-aiml',
-    title: 'AI & Machine Learning Certification',
-    issuer: 'Ardent Computech Pvt. Ltd.',
-    platform: 'Industry Training',
-    type: 'Certification',
-    category: 'Machine Learning',
-    date: 'Certified',
-    description: 'Comprehensive practical training covering Supervised & Unsupervised Learning, Feature Selection, Neural Networks, and Python Data Science Stack (NumPy, Pandas, Scikit-learn).',
-    courses: ['Supervised Learning', 'Feature Selection', 'Neural Networks', 'Scikit-learn Stack'],
-    image: null,
-    verifyUrl: null,
-    icon: Cpu,
-    color: 'border-cyan-500/40 text-cyan-300',
-    badge: 'Industry Certified'
   }
 ];
 
@@ -147,7 +157,7 @@ export default function Certifications() {
             Certifications & <span className="gradient-text-cyan">Credentials</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Verified industry certifications from Google, Vanderbilt University, freeCodeCamp, FIEM SIH Hackathon, and leading tech platforms.
+            Verified industry certifications from Google, Vanderbilt University, Ardent Computech, freeCodeCamp, and SIH Hackathon.
           </p>
         </motion.div>
 
@@ -195,13 +205,13 @@ export default function Certifications() {
                   <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
                     <span className="text-cyan-300/90 font-medium">{item.date}</span>
 
-                    {item.image && (
+                    {(item.image || (item.images && item.images.length > 0)) && (
                       <button
                         onClick={() => setSelectedCert(item)}
                         className="px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 transition-all flex items-center gap-1.5 min-h-[36px] font-semibold"
                       >
                         <Eye className="w-3.5 h-3.5" />
-                        <span>View Certificate</span>
+                        <span>View Certificate{item.images ? ` (${item.images.length})` : ''}</span>
                       </button>
                     )}
                   </div>

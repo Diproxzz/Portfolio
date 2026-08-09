@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Award, CheckCircle2, BookOpen, ArrowLeft, ExternalLink } from 'lucide-react';
+import { X, Calendar, Award, CheckCircle2, BookOpen, ArrowLeft, ExternalLink, Image as ImageIcon } from 'lucide-react';
 
 export default function CertificateModal({ certificate, isOpen, onClose }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [certificate]);
+
   // Lock body scroll & listen for Escape key to close modal
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -23,6 +29,9 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
   }, [isOpen, onClose]);
 
   if (!isOpen || !certificate) return null;
+
+  const imageList = certificate.images || (certificate.image ? [{ src: certificate.image, label: certificate.title }] : []);
+  const currentImg = imageList[activeImageIndex] || imageList[0];
 
   return (
     <AnimatePresence>
@@ -74,13 +83,33 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
               <p className="text-xs font-mono text-cyan-400 mt-1">{certificate.issuer} • {certificate.type}</p>
             </div>
 
+            {/* Multi-Image Switcher Tabs if multiple documents exist */}
+            {imageList.length > 1 && (
+              <div className="flex flex-wrap gap-2 p-1.5 rounded-xl bg-[#080c14] border border-slate-800">
+                {imageList.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImageIndex(idx)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-mono font-semibold transition-all min-h-[38px] ${
+                      activeImageIndex === idx
+                        ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                        : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    }`}
+                  >
+                    <ImageIcon className="w-3.5 h-3.5" />
+                    <span>{img.label || `Document ${idx + 1}`}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+
             {/* Image Preview Card */}
-            {certificate.image && (
+            {currentImg && (
               <div className="relative w-full rounded-xl overflow-hidden border border-slate-700 bg-slate-900 shadow-xl group">
                 <img
-                  src={certificate.image}
-                  alt={certificate.title}
-                  className="w-full h-auto max-h-[500px] object-contain rounded-xl"
+                  src={currentImg.src}
+                  alt={currentImg.label || certificate.title}
+                  className="w-full h-auto max-h-[520px] object-contain rounded-xl"
                 />
               </div>
             )}
@@ -95,7 +124,7 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
             {certificate.courses && certificate.courses.length > 0 && (
               <div>
                 <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 mb-3 flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4" /> Curriculum & Completed Modules ({certificate.courses.length} Courses)
+                  <BookOpen className="w-4 h-4" /> Curriculum & Completed Modules ({certificate.courses.length} Items)
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {certificate.courses.map((course, i) => (
