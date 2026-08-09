@@ -95,14 +95,12 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Bio Summary with Antigravity & Cursor Highlight */}
+            {/* Bio Summary (Clean preferred version) */}
             <p className="mt-4 text-fluid-sub text-slate-300 max-w-2xl leading-relaxed font-normal">
               Software engineer with industry experience as a Quality Engineer at{' '}
               <strong className="text-white font-semibold">LTIMindtree (LTM)</strong>, where hands-on work with Generative AI tools —{' '}
               <span className="text-cyan-300 font-medium">Microsoft Copilot Studio</span> and{' '}
-              <span className="text-cyan-300 font-medium">Synthesia</span> — sparked a drive to transition into AI-focused roles. Independently builds agentic AI applications using{' '}
-              <span className="text-cyan-300 font-medium">Google Antigravity IDE</span> and{' '}
-              <span className="text-cyan-300 font-medium">Cursor AI Code Editor</span>.
+              <span className="text-cyan-300 font-medium">Synthesia</span> — sparked a drive to transition into AI-focused roles. Brings a foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
             </p>
 
             {/* CTA Buttons */}

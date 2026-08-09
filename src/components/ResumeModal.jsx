@@ -116,7 +116,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Professional Summary
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Independently builds agentic AI applications using Google Antigravity IDE & Cursor AI editor. Certified in Google AI, Google Data Analytics, Vanderbilt Prompt Engineering, freeCodeCamp, and Ardent Computech AI/ML Industrial Internship.
+                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Certified in Google AI, Google Data Analytics, Vanderbilt Prompt Engineering, freeCodeCamp, and Ardent Computech AI/ML Industrial Internship. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
               </p>
             </div>
 

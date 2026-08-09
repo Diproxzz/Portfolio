@@ -109,7 +109,7 @@ export default function BioModal({ isOpen, onClose }) {
                 </p>
 
                 <p className="text-xs text-slate-300 leading-relaxed pt-1">
-                  Software engineer with industry experience as a Quality Engineer at <strong>LTIMindtree (LTM)</strong>. Hands-on experience with Microsoft Copilot Studio & Synthesia, and independently develops agentic AI solutions using <strong>Google Antigravity IDE</strong> and <strong>Cursor AI Code Editor</strong>.
+                  Software engineer with industry experience as a Quality Engineer at <strong>LTIMindtree (LTM)</strong>, where hands-on work with Generative AI tools — <strong>Microsoft Copilot Studio</strong> and <strong>Synthesia</strong> — sparked a drive to transition into AI-focused roles. Brings a foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
                 </p>
 
                 {/* Contact Meta Pills */}
@@ -151,12 +151,12 @@ export default function BioModal({ isOpen, onClose }) {
               {/* Left Bio Card: Professional Journey & AI Tools */}
               <div className="p-4 rounded-xl bg-[#080c14]/70 border border-slate-800 space-y-3">
                 <h3 className="font-bold text-white text-sm flex items-center gap-2">
-                  <Briefcase className="w-4 h-4 text-cyan-400" /> Experience & AI Tools Mastery
+                  <Briefcase className="w-4 h-4 text-cyan-400" /> Experience & GenAI Focus
                 </h3>
                 <ul className="space-y-2 text-slate-300 list-disc list-inside leading-relaxed">
                   <li><strong>LTIMindtree (LTM):</strong> Quality Engineer working on automation testing (Selenium, Java, Cucumber) for TATA 1mg & Alfred Health.</li>
                   <li><strong>GenAI Innovation:</strong> Built automated AI chatbots using <strong>Microsoft Copilot Studio</strong> and AI videos with <strong>Synthesia</strong> avatar tech.</li>
-                  <li><strong>AI IDEs & Workflows:</strong> Independently uses <strong>Google Antigravity IDE</strong> and <strong>Cursor AI Code Editor</strong> for vibe coding, agentic workflows, and rapid ML model deployment.</li>
+                  <li><strong>AI IDEs & Tools:</strong> Experienced with <strong>Google Antigravity IDE</strong> and <strong>Cursor AI Code Editor</strong> for agentic vibe coding & rapid ML model deployment.</li>
                 </ul>
               </div>
 
