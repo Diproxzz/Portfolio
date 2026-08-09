@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calendar, Award, CheckCircle2, BookOpen, ArrowLeft } from 'lucide-react';
+import { X, Calendar, Award, CheckCircle2, BookOpen, ArrowLeft, ExternalLink } from 'lucide-react';
 
 export default function CertificateModal({ certificate, isOpen, onClose }) {
   // Lock body scroll & listen for Escape key to close modal
@@ -120,8 +120,8 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
               </span>
             </div>
 
-            {/* Bottom Return Button */}
-            <div className="pt-4 border-t border-slate-800 flex justify-end">
+            {/* Bottom Actions */}
+            <div className="pt-4 border-t border-slate-800 flex items-center justify-between flex-wrap gap-3">
               <button
                 onClick={onClose}
                 className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center gap-2 min-h-[44px]"
@@ -129,6 +129,18 @@ export default function CertificateModal({ certificate, isOpen, onClose }) {
                 <ArrowLeft className="w-4 h-4" />
                 <span>Return to Portfolio</span>
               </button>
+
+              {certificate.verifyUrl && (
+                <a
+                  href={certificate.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-100 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center gap-2 min-h-[44px]"
+                >
+                  <ExternalLink className="w-4 h-4 text-cyan-400" />
+                  <span>Verify Credential Online</span>
+                </a>
+              )}
             </div>
 
           </div>

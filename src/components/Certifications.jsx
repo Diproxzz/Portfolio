@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, Trophy, ExternalLink, Sparkles, Eye, Bot, Database, Terminal, Cpu } from 'lucide-react';
+import { Award, CheckCircle2, Trophy, ExternalLink, Sparkles, Eye, Bot, Database, Terminal, Cpu, Layout } from 'lucide-react';
 import CertificateModal from './CertificateModal';
 
 const certsAndAchievements = [
@@ -22,7 +22,8 @@ const certsAndAchievements = [
       'AI for Data Analysis',
       'AI for App Building'
     ],
-    image: '/certificates/google-ai.png',
+    image: '/certificates/google-ai.jpg',
+    verifyUrl: 'https://coursera.org/verify/professional-cert/IPDOYARO63GI',
     icon: Bot,
     color: 'border-cyan-400/60 text-cyan-300',
     badge: '7 Courses • Specialization'
@@ -44,9 +45,11 @@ const certsAndAchievements = [
       'Analyze Data to Answer Questions',
       'Share Data Through the Art of Visualization',
       'Introduction to Data Analysis Using Python',
-      'Google Data Analytics Capstone Case Study'
+      'Google Data Analytics Capstone Case Study',
+      'Accelerate Your Job Search with AI'
     ],
-    image: '/certificates/google-data-analytics.png',
+    image: '/certificates/google-data-analytics.jpg',
+    verifyUrl: 'https://coursera.org/verify/professional-cert/D46GCUVQC1I0',
     icon: Database,
     color: 'border-blue-400/60 text-blue-300',
     badge: '9 Courses • Specialization'
@@ -65,14 +68,47 @@ const certsAndAchievements = [
       'ChatGPT System Instructions & Personas',
       'LLM Workflow Integration & Reasoning Controls'
     ],
-    image: '/certificates/vanderbilt-prompt-engineering.png',
+    image: '/certificates/vanderbilt-prompt-engineering.jpg',
+    verifyUrl: 'https://coursera.org/verify/2BBC9KK45DQH',
     icon: Terminal,
     color: 'border-amber-400/60 text-amber-300',
     badge: 'Vanderbilt CS Dept.'
   },
   {
+    id: 'freecodecamp-web',
+    title: 'Responsive Web Design Certification',
+    issuer: 'freeCodeCamp',
+    platform: 'freeCodeCamp',
+    type: 'Developer Certification',
+    category: 'Web Engineering',
+    date: 'Apr 14, 2023',
+    description: 'Validated mastery representing approximately 300 hours of work in modern HTML5, CSS3, Flexbox, Grid, Responsive Layout Design, and Web Accessibility standards.',
+    courses: ['HTML5 & Modern CSS3', 'Flexbox & CSS Grid Layouts', 'Responsive Web Design Patterns', 'Web Accessibility Standards'],
+    image: '/certificates/freecodecamp-web.jpg',
+    verifyUrl: 'https://freecodecamp.org/certification/fcc316b50fe-fcdb-4a17-be52-2047642ffd9a/responsive-web-design',
+    icon: Layout,
+    color: 'border-emerald-400/60 text-emerald-300',
+    badge: '300 Hours Verified'
+  },
+  {
+    id: 'sih-hackathon',
+    title: 'Smart India Hackathon (SIH 2023) Participant',
+    issuer: 'Future Institute of Engineering & Management (FIEM)',
+    platform: 'Internal Hackathon',
+    type: 'Certificate of Participation',
+    category: 'Competitive Engineering',
+    date: 'Sep 21, 2023',
+    description: 'Awarded for participating in the Smart India Hackathon (SIH 2023) Internal Hackathon held at FIEM, prototyping innovative software solutions under strict time constraints.',
+    courses: ['Hackathon Prototyping', 'Software System Architecture', 'Rapid Solution Pitching'],
+    image: '/certificates/sih-hackathon.jpg',
+    verifyUrl: null,
+    icon: Trophy,
+    color: 'border-purple-400/60 text-purple-300',
+    badge: 'SIH 2023 Hackathon'
+  },
+  {
     id: 'ardent-aiml',
-    title: 'AI & Machine Learning Course',
+    title: 'AI & Machine Learning Certification',
     issuer: 'Ardent Computech Pvt. Ltd.',
     platform: 'Industry Training',
     type: 'Certification',
@@ -81,39 +117,10 @@ const certsAndAchievements = [
     description: 'Comprehensive practical training covering Supervised & Unsupervised Learning, Feature Selection, Neural Networks, and Python Data Science Stack (NumPy, Pandas, Scikit-learn).',
     courses: ['Supervised Learning', 'Feature Selection', 'Neural Networks', 'Scikit-learn Stack'],
     image: null,
+    verifyUrl: null,
     icon: Cpu,
     color: 'border-cyan-500/40 text-cyan-300',
     badge: 'Industry Certified'
-  },
-  {
-    id: 'freecodecamp-web',
-    title: 'Front-End Web Development Certification',
-    issuer: 'freeCodeCamp',
-    platform: 'freeCodeCamp',
-    type: 'Certification',
-    category: 'Web Engineering',
-    date: 'Certified',
-    description: 'Validated mastery in modern HTML5, CSS3, JavaScript (ES6+), Responsive Layout Design, Web Accessibility standards, and DOM manipulation.',
-    courses: ['Responsive Web Design', 'JS Algorithms & Data Structures'],
-    image: null,
-    icon: CheckCircle2,
-    color: 'border-emerald-400/40 text-emerald-300',
-    badge: 'Verified Developer'
-  },
-  {
-    id: 'sih-hackathon',
-    title: 'Top 5 Finalist — Smart India Hackathon (SIH)',
-    issuer: 'College Level Competition',
-    platform: 'Hackathon',
-    type: 'Achievement',
-    category: 'Competitive Engineering',
-    date: 'Top 5 Finalist',
-    description: 'Recognized as Top 5 Finalist for prototyping an innovative software solution addressing national problem statements under intense hackathon time constraints.',
-    courses: ['Rapid Prototyping', 'System Architecture', 'Hackathon Pitching'],
-    image: null,
-    icon: Trophy,
-    color: 'border-purple-400/40 text-purple-300',
-    badge: 'Top 5 Finalist'
   }
 ];
 
@@ -140,7 +147,7 @@ export default function Certifications() {
             Certifications & <span className="gradient-text-cyan">Credentials</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Verified industry certifications from Google, Vanderbilt University, and leading tech platforms.
+            Verified industry certifications from Google, Vanderbilt University, freeCodeCamp, FIEM SIH Hackathon, and leading tech platforms.
           </p>
         </motion.div>
 

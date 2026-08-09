@@ -53,19 +53,26 @@ export default function Navbar() {
     };
   }, []);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id, e) => {
+    if (e) e.preventDefault();
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    // Use a small timeout so menu collapse finishes before calculating scroll position on mobile
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const navHeight = 85;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - navHeight;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    }, 60);
   };
 
   return (
@@ -78,9 +85,9 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-4 sm:px-6">
-          {/* Logo / Name with Fascinating AI Neural Core Emblem */}
+          {/* Logo / Name with AI Emblem */}
           <button
-            onClick={() => scrollToSection('hero')}
+            onClick={(e) => scrollToSection('hero', e)}
             className="flex items-center gap-3 text-left group focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-lg p-1"
           >
             {!avatarError ? (
@@ -113,7 +120,7 @@ export default function Navbar() {
               return (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={(e) => scrollToSection(item.id, e)}
                   className={`relative px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-1.5 min-h-[44px] ${
                     isActive ? 'text-cyan-300' : 'text-slate-400 hover:text-slate-200'
                   }`}
@@ -136,7 +143,7 @@ export default function Navbar() {
           {/* CTA Link (Desktop) */}
           <div className="hidden sm:flex lg:hidden xl:flex items-center gap-3">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={(e) => scrollToSection('contact', e)}
               className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 border border-cyan-500/30 rounded-xl hover:bg-cyan-500/10 hover:border-cyan-500/60 transition-all duration-200 min-h-[44px]"
             >
               Get in Touch
@@ -168,9 +175,10 @@ export default function Navbar() {
                   const isActive = activeSection === item.id;
                   const Icon = item.icon;
                   return (
-                    <button
+                    <a
                       key={item.id}
-                      onClick={() => scrollToSection(item.id)}
+                      href={`#${item.id}`}
+                      onClick={(e) => scrollToSection(item.id, e)}
                       className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left min-h-[44px] ${
                         isActive
                           ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30'
@@ -179,15 +187,16 @@ export default function Navbar() {
                     >
                       <Icon className="w-5 h-5 text-cyan-400" />
                       <span>{item.label}</span>
-                    </button>
+                    </a>
                   );
                 })}
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="mt-2 w-full py-3 text-center text-sm font-bold text-slate-900 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl hover:brightness-110 transition-all shadow-md shadow-cyan-500/20 min-h-[44px]"
+                <a
+                  href="#contact"
+                  onClick={(e) => scrollToSection('contact', e)}
+                  className="mt-2 w-full py-3 text-center text-sm font-bold text-slate-900 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl hover:brightness-110 transition-all shadow-md shadow-cyan-500/20 min-h-[44px] flex items-center justify-center"
                 >
                   Contact Me
-                </button>
+                </a>
               </div>
             </motion.div>
           )}

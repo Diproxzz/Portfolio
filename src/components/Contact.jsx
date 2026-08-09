@@ -26,7 +26,7 @@ export default function Contact() {
     return errs;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -37,13 +37,39 @@ export default function Contact() {
     setErrors({});
     setIsSubmitting(true);
 
-    // Simulate async message processing
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Dispatch email directly to diprochowdhury123@gmail.com via FormSubmit endpoint
+      const response = await fetch('https://formsubmit.co/ajax/diprochowdhury123@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `Portfolio Inquiry: ${formData.subject} from ${formData.name}`,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: 'AI/ML Engineering Opportunity', message: '' });
+        setTimeout(() => setSubmitted(false), 7000);
+      } else {
+        // Fallback to mailto client if fetch service is blocked or offline
+        window.location.href = `mailto:diprochowdhury123@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+        setSubmitted(true);
+      }
+    } catch (err) {
+      // Network fallback to mailto
+      window.location.href = `mailto:diprochowdhury123@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
       setSubmitted(true);
-      setFormData({ name: '', email: '', subject: 'AI/ML Engineering Opportunity', message: '' });
-      setTimeout(() => setSubmitted(false), 6000);
-    }, 1000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -177,7 +203,7 @@ export default function Contact() {
               {submitted && (
                 <div className="mb-6 p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <span>Thank you! Your message has been dispatched to diprochowdhury123@gmail.com. I will get back to you promptly!</span>
+                  <span>Thank you! Your message has been sent to diprochowdhury123@gmail.com. I will reply to you shortly!</span>
                 </div>
               )}
 
@@ -263,7 +289,7 @@ export default function Contact() {
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full border-2 border-slate-950 border-t-transparent animate-spin" />
-                      Dispatching Message...
+                      Sending Message to diprochowdhury123@gmail.com...
                     </span>
                   ) : (
                     <span className="flex items-center gap-2">
