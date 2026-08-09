@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Mail, Github, Linkedin, Sparkles, Bot, BrainCircuit, Terminal } from 'lucide-react';
 import ProfilePhoto from './ProfilePhoto';
 import ResumeModal from './ResumeModal';
+import BioModal from './BioModal';
 
 const typingTitles = [
   'Quality Engineer',
@@ -15,6 +16,7 @@ export default function Hero() {
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [bioOpen, setBioOpen] = useState(false);
 
   useEffect(() => {
     const fullText = typingTitles[titleIndex];
@@ -55,14 +57,14 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left / Top Column: Profile Photo (Stacked on top on mobile/tablet, centered) */}
+          {/* Left / Top Column: Profile Photo (Clickable to open Bio Modal) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="lg:col-span-5 flex flex-col items-center order-1 lg:order-2"
           >
-            <ProfilePhoto imageSrc={null} />
+            <ProfilePhoto imageSrc="/profile.png" onClickBio={() => setBioOpen(true)} />
           </motion.div>
 
           {/* Right / Text Column: Hero Content */}
@@ -93,12 +95,14 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Bio Summary */}
+            {/* Bio Summary with Antigravity & Cursor Highlight */}
             <p className="mt-4 text-fluid-sub text-slate-300 max-w-2xl leading-relaxed font-normal">
               Software engineer with industry experience as a Quality Engineer at{' '}
               <strong className="text-white font-semibold">LTIMindtree (LTM)</strong>, where hands-on work with Generative AI tools —{' '}
               <span className="text-cyan-300 font-medium">Microsoft Copilot Studio</span> and{' '}
-              <span className="text-cyan-300 font-medium">Synthesia</span> — sparked a drive to transition into AI-focused roles. Brings a foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
+              <span className="text-cyan-300 font-medium">Synthesia</span> — sparked a drive to transition into AI-focused roles. Independently builds agentic AI applications using{' '}
+              <span className="text-cyan-300 font-medium">Google Antigravity IDE</span> and{' '}
+              <span className="text-cyan-300 font-medium">Cursor AI Code Editor</span>.
             </p>
 
             {/* CTA Buttons */}
@@ -174,6 +178,9 @@ export default function Hero() {
 
       {/* Resume Modal */}
       <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+
+      {/* Profile Bio Lightbox Modal */}
+      <BioModal isOpen={bioOpen} onClose={() => setBioOpen(false)} />
     </section>
   );
 }

@@ -20,7 +20,7 @@ const projects = [
       'Trained multi-layer Bidirectional LSTM RNN to catch complex obfuscation & typosquatting',
       'Achieved 99.2% cross-validation accuracy on a benchmark dataset of over 400,000 URLs'
     ],
-    github: 'https://github.com/Diproxzz/Malicious-URL-Detector'
+    github: 'https://github.com/Diproxzz/URL-checker'
   },
   {
     id: 'echogenius',
@@ -38,7 +38,7 @@ const projects = [
       'Modular plugin architecture enabling instant integration of external APIs & IoT triggers',
       'Future roadmap includes multilingual translation & offline edge neural execution'
     ],
-    github: 'https://github.com/Diproxzz/EchoGenius-AI-Voice-Assistant'
+    github: 'https://github.com/Diproxzz/EchoGenius'
   },
   {
     id: 'movie-recommender',
@@ -87,7 +87,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Card Grid (3 columns desktop -> 2 columns tablet -> 1 column mobile) */}
+        {/* Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => {
             const Icon = project.icon;
