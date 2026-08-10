@@ -261,7 +261,7 @@ export default function AIChatbot() {
 
           {!isOpen && (
             <span className="hidden sm:inline-block font-heading font-bold text-xs tracking-wide pr-1">
-              Ask Leo AI
+              Ask Leo
             </span>
           )}
         </motion.button>
