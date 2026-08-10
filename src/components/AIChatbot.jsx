@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, User, Sparkles, RefreshCw, ChevronDown, ExternalLink, Code2, Award, Briefcase, GraduationCap } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, Sparkles, RefreshCw, ChevronDown, ExternalLink } from 'lucide-react';
 
 const DIPRO_KNOWLEDGE = {
   name: "Dipro Chowdhury",
@@ -68,7 +68,6 @@ const DIPRO_KNOWLEDGE = {
 };
 
 const SUGGESTED_QUESTIONS = [
-  "How old is Dipro?",
   "What is Dipro's background?",
   "Tell me about his AI/ML projects",
   "What certifications does he have?",
@@ -79,14 +78,14 @@ const SUGGESTED_QUESTIONS = [
 function generateBotResponse(userInput) {
   const query = userInput.toLowerCase().trim();
 
-  // Age queries
-  if (query.includes('age') || query.includes('how old') || query.includes('years old') || query.includes('birth')) {
-    return `Dipro Chowdhury is **23 years old**. He was born and raised in Kolkata, India, and is currently working as a Quality Engineer at LTIMindtree (LTM) while actively building AI/ML applications!`;
+  // Age query (only if explicitly asked)
+  if (query.includes('age') || query.includes('how old') || query.includes('years old')) {
+    return `Dipro Chowdhury is **23 years old**, based in Kolkata, India. He works as a Quality Engineer at LTIMindtree (LTM) while building advanced AI/ML applications!`;
   }
 
   // Background / Who is Dipro / Summary
   if (query.includes('who is') || query.includes('background') || query.includes('about dipro') || query.includes('tell me about') || query.includes('intro') || query.includes('summary')) {
-    return `**Dipro Chowdhury** is a **23-year-old** Software Engineer & Quality Engineer at **LTIMindtree (LTM)** in Kolkata, India.\n\nHe holds a **B.Tech in Computer Science & Engineering (8.79 CGPA)** from Future Institute of Engineering & Management.\n\nHe specializes in **AI/ML**, **Generative AI**, and **Automation Testing**. He works with tools like **Google Antigravity IDE**, **Cursor**, **Microsoft Copilot Studio**, **Synthesia**, **Python**, **LSTM RNNs**, and **Selenium**!`;
+    return `**Dipro Chowdhury** is a Software Engineer & Quality Engineer at **LTIMindtree (LTM)** in Kolkata, India.\n\nHe holds a **B.Tech in Computer Science & Engineering (8.79 CGPA)** from Future Institute of Engineering & Management.\n\nHe specializes in **AI/ML**, **Generative AI**, and **Automation Testing**. He works with tools like **Google Antigravity IDE**, **Cursor**, **Microsoft Copilot Studio**, **Synthesia**, **Python**, **LSTM RNNs**, and **Selenium**!`;
   }
 
   // Education / College / Marks / CGPA
@@ -120,7 +119,7 @@ function generateBotResponse(userInput) {
   }
 
   // Generic fallback greeting or helper response
-  return `I can help you with anything about **Dipro Chowdhury** (23 years old)! Feel free to ask about his:\n\n• **Age & Personal Background**\n• **Education & CGPA (8.79)**\n• **Quality Engineer Experience at LTIMindtree**\n• **AI/ML Projects (Malicious URL Detector, EchoGenius, Movie Engine)**\n• **Google & Vanderbilt Certifications**\n• **Skills & AI IDEs (Antigravity, Cursor, Copilot Studio)**\n• **Contact & Social Profiles**`;
+  return `I am **Leo**, Dipro's AI Assistant! I can help answer questions about Dipro Chowdhury's:\n\n• **Background & Experience at LTIMindtree**\n• **Education & Academic Record (8.79 CGPA)**\n• **AI/ML Projects (Malicious URL Detector, EchoGenius, Movie Engine)**\n• **Google & Vanderbilt Certifications**\n• **Skills & AI IDEs (Antigravity, Cursor, Copilot Studio)**\n• **Contact Details & Links**`;
 }
 
 export default function AIChatbot() {
@@ -129,7 +128,7 @@ export default function AIChatbot() {
     {
       id: 'welcome',
       sender: 'bot',
-      text: `Hi there! 👋 I am **Dipro's AI Assistant**. Ask me anything about Dipro Chowdhury (23 years old), his AI/ML projects, experience at LTIMindtree, or certifications!`,
+      text: `Hi there! 👋 I'm **Leo**, Dipro's AI Assistant. Ask me anything about Dipro Chowdhury, his AI/ML projects, experience at LTIMindtree, or certifications!`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -173,7 +172,7 @@ export default function AIChatbot() {
       };
       setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
-    }, 600);
+    }, 550);
   };
 
   const handleClearHistory = () => {
@@ -181,7 +180,7 @@ export default function AIChatbot() {
       {
         id: 'welcome-reset',
         sender: 'bot',
-        text: `Chat history cleared! Feel free to ask any question about Dipro Chowdhury (23 years old).`,
+        text: `Chat history cleared! I'm Leo, Dipro's AI Assistant. Feel free to ask any question about Dipro Chowdhury.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       }
     ]);
@@ -249,7 +248,7 @@ export default function AIChatbot() {
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen((prev) => !prev)}
           className="relative group p-3.5 sm:p-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white shadow-2xl shadow-cyan-500/40 border border-cyan-400/50 flex items-center gap-2.5 min-h-[52px] min-w-[52px]"
-          aria-label="Toggle Dipro AI Chatbot"
+          aria-label="Toggle Leo AI Chatbot"
         >
           <span className="relative flex items-center justify-center">
             {isOpen ? (
@@ -262,7 +261,7 @@ export default function AIChatbot() {
 
           {!isOpen && (
             <span className="hidden sm:inline-block font-heading font-bold text-xs tracking-wide pr-1">
-              Ask Dipro AI
+              Ask Leo AI
             </span>
           )}
         </motion.button>
@@ -288,12 +287,12 @@ export default function AIChatbot() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-sm text-white flex items-center gap-1.5">
-                    <span>Dipro's AI Assistant</span>
+                    <span>Leo</span>
                     <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   </h3>
                   <p className="text-[11px] font-mono text-cyan-400/90 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Online • 23 yrs old Knowledge Engine
+                    Online • Dipro's AI Assistant
                   </p>
                 </div>
               </div>
@@ -396,7 +395,7 @@ export default function AIChatbot() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Dipro's age, skills, projects..."
+                placeholder="Ask Leo about Dipro's skills, projects..."
                 className="flex-1 bg-slate-900/90 border border-slate-700/80 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors min-h-[40px]"
               />
               <button
