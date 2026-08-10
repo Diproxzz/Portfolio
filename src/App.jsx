@@ -9,6 +9,7 @@ import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AIChatbot from './components/AIChatbot';
 
 export default function App() {
   return (
@@ -29,6 +30,9 @@ export default function App() {
         <Certifications />
         <Contact />
       </main>
+
+      {/* Interactive AI Portfolio Chatbot */}
+      <AIChatbot />
 
       {/* Footer */}
       <Footer />
