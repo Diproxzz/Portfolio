@@ -68,58 +68,197 @@ const DIPRO_KNOWLEDGE = {
 };
 
 const SUGGESTED_QUESTIONS = [
-  "What is Dipro's background?",
   "Tell me about his AI/ML projects",
   "What certifications does he have?",
+  "What is Dipro's work experience?",
   "What AI tools & IDEs does he use?",
+  "What is his education & CGPA?",
   "How can I contact Dipro?"
 ];
 
 function generateBotResponse(userInput) {
   const query = userInput.toLowerCase().trim();
 
-  // Age query (only if explicitly asked)
+  // 1. Projects Intent (Check BEFORE general phrase matchers like 'tell me about')
+  if (
+    query.includes('project') ||
+    query.includes('url') ||
+    query.includes('echogenius') ||
+    query.includes('movie') ||
+    query.includes('recommendation') ||
+    query.includes('voice assistant') ||
+    query.includes('detector') ||
+    query.includes('github') ||
+    query.includes('built') ||
+    query.includes('portfolio projects')
+  ) {
+    return (
+      `🚀 **Key AI/ML Projects by Dipro Chowdhury:**\n\n` +
+      `1. **Malicious URL Detector (99% Accuracy)**\n` +
+      `   • Deep Learning LSTM RNN neural network classifying phishing & malware links in real-time.\n` +
+      `   • Built with Python, PyTorch/TensorFlow, and character-level tokenization.\n` +
+      `   • Repository: [github.com/Diproxzz/URL-checker](https://github.com/Diproxzz/URL-checker)\n\n` +
+      `2. **EchoGenius AI Voice Assistant (98% Recognition)**\n` +
+      `   • Modular AI voice assistant with an extensible NLP command pipeline.\n` +
+      `   • Listens, parses, and executes desktop & web tasks with low latency.\n` +
+      `   • Repository: [github.com/Diproxzz/EchoGenius](https://github.com/Diproxzz/EchoGenius)\n\n` +
+      `3. **Movie Recommendation System**\n` +
+      `   • Content-based filtering engine analyzing TMDB metadata using CountVectorizer & Cosine Similarity distance matrices.\n` +
+      `   • Repository: [github.com/Diproxzz/Movie-Recommendation-System](https://github.com/Diproxzz/Movie-Recommendation-System)`
+    );
+  }
+
+  // 2. Certifications & Credentials Intent
+  if (
+    query.includes('certif') ||
+    query.includes('course') ||
+    query.includes('google') ||
+    query.includes('vanderbilt') ||
+    query.includes('ardent') ||
+    query.includes('hackathon') ||
+    query.includes('freecodecamp') ||
+    query.includes('credential') ||
+    query.includes('license')
+  ) {
+    return (
+      `📜 **Verified Certifications & Credentials:**\n\n` +
+      `• **Google AI Professional Certificate:** 7-Course Specialization covering AI Fundamentals, Brainstorming, Research, Data Analysis, and App Building.\n` +
+      `• **Google Data Analytics Professional Certificate:** 9-Course Specialization covering Python, SQL, Tableau, R, and Data Pipelines.\n` +
+      `• **Prompt Engineering for ChatGPT:** Authorized by Vanderbilt University CS Department (Dr. Jules White).\n` +
+      `• **AI & ML Industrial Internship:** Ardent Computech Pvt. Ltd. (3 Verified Certificates for Industrial Training, Internship & Project Letter).\n` +
+      `• **Responsive Web Design:** freeCodeCamp (300 Hours Verified).\n` +
+      `• **Smart India Hackathon (SIH 2023):** FIEM Internal Hackathon Participant.`
+    );
+  }
+
+  // 3. Work Experience / Role / LTIMindtree / Job Intent
+  if (
+    query.includes('experience') ||
+    query.includes('job') ||
+    query.includes('work') ||
+    query.includes('company') ||
+    query.includes('ltm') ||
+    query.includes('ltimindtree') ||
+    query.includes('role') ||
+    query.includes('testing') ||
+    query.includes('selenium') ||
+    query.includes('cucumber') ||
+    query.includes('career')
+  ) {
+    return (
+      `💼 **Work Experience at LTIMindtree (LTM):**\n\n` +
+      `• **Position:** Quality Engineer (Kolkata, India • Sep 2025 – Present)\n` +
+      `• **Automation Testing:** Completed 2.5-month intensive training in Java, Selenium, Cucumber BDD, TestNG, and Maven, contributing to test design & execution for **TATA 1mg** and **Alfred Health** in Agile sprints.\n` +
+      `• **Generative AI Work:** Built and deployed automated AI chatbots with **Microsoft Copilot Studio** and produced AI training videos using **Synthesia** avatar technology.\n` +
+      `• **AI IDE Integration:** Leverages **Google Antigravity IDE** and **Cursor AI Code Editor** for vibe coding and rapid prototyping.`
+    );
+  }
+
+  // 4. Education / College / Degree / Marks / CGPA Intent
+  if (
+    query.includes('education') ||
+    query.includes('college') ||
+    query.includes('degree') ||
+    query.includes('cgpa') ||
+    query.includes('school') ||
+    query.includes('fiem') ||
+    query.includes('marks') ||
+    query.includes('b.tech') ||
+    query.includes('university') ||
+    query.includes('study') ||
+    query.includes('studied') ||
+    query.includes('academic')
+  ) {
+    return (
+      `🎓 **Education Details:**\n\n` +
+      `• **B.Tech in Computer Science & Engineering:** Future Institute of Engineering & Management (FIEM) — **8.79 CGPA** (2021–2025)\n` +
+      `• **Higher Secondary (12th CISCE):** 90.67%\n` +
+      `• **Secondary (10th CISCE):** 88.60%`
+    );
+  }
+
+  // 5. Skills & AI Tools Intent
+  if (
+    query.includes('skill') ||
+    query.includes('language') ||
+    query.includes('tool') ||
+    query.includes('python') ||
+    query.includes('java') ||
+    query.includes('antigravity') ||
+    query.includes('cursor') ||
+    query.includes('copilot') ||
+    query.includes('synthesia') ||
+    query.includes('ide') ||
+    query.includes('stack') ||
+    query.includes('technology') ||
+    query.includes('tech')
+  ) {
+    return (
+      `🛠️ **Technical Skills & Tools:**\n\n` +
+      `• **Programming Languages:** Python, Java, C, HTML, CSS, SQL\n` +
+      `• **AI & Machine Learning:** LSTM RNN, NLP, Deep Learning, Feature Engineering, Cosine Similarity, Scikit-Learn, PyTorch/TensorFlow\n` +
+      `• **AI IDEs & GenAI Tools:** Google Antigravity IDE, Cursor AI Code Editor, Microsoft Copilot Studio, Synthesia\n` +
+      `• **Testing & Automation:** Selenium WebDriver, Cucumber BDD, TestNG, Maven, Agile`
+    );
+  }
+
+  // 6. Contact / Email / Phone / Links Intent
+  if (
+    query.includes('contact') ||
+    query.includes('email') ||
+    query.includes('phone') ||
+    query.includes('call') ||
+    query.includes('reach') ||
+    query.includes('linkedin') ||
+    query.includes('hire') ||
+    query.includes('message') ||
+    query.includes('mail')
+  ) {
+    return (
+      `📬 **Contact Information:**\n\n` +
+      `• **Email:** diprochowdhury123@gmail.com\n` +
+      `• **Phone:** +91 6290090297\n` +
+      `• **Location:** Kolkata, West Bengal, India\n` +
+      `• **LinkedIn:** [linkedin.com/in/dipro-chowdhury10](https://linkedin.com/in/dipro-chowdhury10)\n` +
+      `• **GitHub:** [github.com/Diproxzz](https://github.com/Diproxzz)`
+    );
+  }
+
+  // 7. Age Query (Explicit)
   if (query.includes('age') || query.includes('how old') || query.includes('years old')) {
     return `Dipro Chowdhury is **23 years old**, based in Kolkata, India. He works as a Quality Engineer at LTIMindtree (LTM) while building advanced AI/ML applications!`;
   }
 
-  // Background / Who is Dipro / Summary
-  if (query.includes('who is') || query.includes('background') || query.includes('about dipro') || query.includes('tell me about') || query.includes('intro') || query.includes('summary')) {
-    return `**Dipro Chowdhury** is a Software Engineer & Quality Engineer at **LTIMindtree (LTM)** in Kolkata, India.\n\nHe holds a **B.Tech in Computer Science & Engineering (8.79 CGPA)** from Future Institute of Engineering & Management.\n\nHe specializes in **AI/ML**, **Generative AI**, and **Automation Testing**. He works with tools like **Google Antigravity IDE**, **Cursor**, **Microsoft Copilot Studio**, **Synthesia**, **Python**, **LSTM RNNs**, and **Selenium**!`;
+  // 8. General Background / Overview / Who is Dipro (Checked AFTER specific topics)
+  if (
+    query.includes('who is') ||
+    query.includes('background') ||
+    query.includes('about dipro') ||
+    query.includes('tell me about dipro') ||
+    query.includes('who are you') ||
+    query.includes('intro') ||
+    query.includes('summary') ||
+    query.includes('overview') ||
+    query.includes('tell me about') ||
+    query.includes('about')
+  ) {
+    return (
+      `**Dipro Chowdhury** is a Software Engineer & Quality Engineer at **LTIMindtree (LTM)** in Kolkata, India.\n\n` +
+      `He holds a **B.Tech in Computer Science & Engineering (8.79 CGPA)** from Future Institute of Engineering & Management.\n\n` +
+      `He specializes in **AI/ML**, **Generative AI**, and **Automation Testing**. He works with tools like **Google Antigravity IDE**, **Cursor**, **Microsoft Copilot Studio**, **Synthesia**, **Python**, **LSTM RNNs**, and **Selenium**!`
+    );
   }
 
-  // Education / College / Marks / CGPA
-  if (query.includes('education') || query.includes('college') || query.includes('degree') || query.includes('cgpa') || query.includes('school') || query.includes('fiem') || query.includes('marks') || query.includes('university')) {
-    return `🎓 **Education Details:**\n\n• **B.Tech in CSE:** Future Institute of Engineering & Management (FIEM) — **8.79 CGPA** (2021–2025)\n• **Higher Secondary (12th):** 90.67% (CISCE)\n• **Secondary (10th):** 88.60% (CISCE)`;
-  }
-
-  // Work experience / LTM / LTIMindtree / Job / Current Role
-  if (query.includes('experience') || query.includes('job') || query.includes('work') || query.includes('company') || query.includes('ltm') || query.includes('ltimindtree') || query.includes('role') || query.includes('testing')) {
-    return `💼 **Work Experience at LTIMindtree (LTM):**\n\n• **Role:** Quality Engineer (Sep 2025 – Present)\n• **Automation Testing:** Completed 2.5-month intensive training in Java, Selenium, Cucumber BDD, TestNG, and Maven, contributing to platforms like **TATA 1mg** and **Alfred Health**.\n• **Generative AI Work:** Built and deployed AI chatbots using **Microsoft Copilot Studio** and created AI video content with **Synthesia** avatar technology.`;
-  }
-
-  // Projects / URL Detector / EchoGenius / Movie
-  if (query.includes('project') || query.includes('url') || query.includes('echogenius') || query.includes('movie') || query.includes('recommendation') || query.includes('voice') || query.includes('detector') || query.includes('github')) {
-    return `🚀 **Key AI/ML Projects:**\n\n1. **Malicious URL Detector (99% Accuracy)**\n   • Deep Learning LSTM RNN classifying phishing & malware links.\n   • Repository: [github.com/Diproxzz/URL-checker](https://github.com/Diproxzz/URL-checker)\n\n2. **EchoGenius AI Voice Assistant (98% Recognition)**\n   • Modular voice assistant with NLP intent classification.\n   • Repository: [github.com/Diproxzz/EchoGenius](https://github.com/Diproxzz/EchoGenius)\n\n3. **Movie Recommendation System**\n   • Content-based TMDB metadata filtering with CountVectorizer & Cosine Similarity.\n   • Repository: [github.com/Diproxzz/Movie-Recommendation-System](https://github.com/Diproxzz/Movie-Recommendation-System)`;
-  }
-
-  // Certifications / Courses / Google / Vanderbilt / Ardent
-  if (query.includes('certif') || query.includes('course') || query.includes('google') || query.includes('vanderbilt') || query.includes('ardent') || query.includes('hackathon') || query.includes('freecodecamp')) {
-    return `📜 **Verified Certifications & Achievements:**\n\n• **Google AI Professional Certificate:** 7 Specialization Courses\n• **Google Data Analytics Professional Certificate:** 9 Specialization Courses\n• **Prompt Engineering for ChatGPT:** Vanderbilt University CS Dept.\n• **AI & ML Industrial Internship:** Ardent Computech (3 Verified Certificates)\n• **Responsive Web Design:** freeCodeCamp (300 Hours Verified)\n• **Smart India Hackathon (SIH 2023):** FIEM Internal Participant`;
-  }
-
-  // Skills / Programming / Python / Java / Tools / Antigravity / Cursor
-  if (query.includes('skill') || query.includes('language') || query.includes('tool') || query.includes('python') || query.includes('java') || query.includes('antigravity') || query.includes('cursor') || query.includes('copilot') || query.includes('synthesia') || query.includes('ide')) {
-    return `🛠️ **Technical Skills & AI Tools:**\n\n• **Programming:** Python, Java, C, HTML, CSS, SQL\n• **AI/ML:** LSTM RNN, NLP, Deep Learning, Feature Engineering, Cosine Similarity, Scikit-Learn\n• **AI Tools & IDEs:** Google Antigravity IDE, Cursor AI Code Editor, Microsoft Copilot Studio, Synthesia\n• **Testing & Automation:** Selenium, Cucumber BDD, TestNG, Maven`;
-  }
-
-  // Contact / Email / Phone / Hire / Reach / LinkedIn
-  if (query.includes('contact') || query.includes('email') || query.includes('phone') || query.includes('call') || query.includes('reach') || query.includes('linkedin') || query.includes('hire') || query.includes('message')) {
-    return `📬 **Contact Information:**\n\n• **Email:** diprochowdhury123@gmail.com\n• **Phone:** +91 6290090297\n• **Location:** Kolkata, India\n• **LinkedIn:** [linkedin.com/in/dipro-chowdhury10](https://linkedin.com/in/dipro-chowdhury10)\n• **GitHub:** [github.com/Diproxzz](https://github.com/Diproxzz)`;
-  }
-
-  // Generic fallback greeting or helper response
-  return `I am **Leo**, Dipro's AI Assistant! I can help answer questions about Dipro Chowdhury's:\n\n• **Background & Experience at LTIMindtree**\n• **Education & Academic Record (8.79 CGPA)**\n• **AI/ML Projects (Malicious URL Detector, EchoGenius, Movie Engine)**\n• **Google & Vanderbilt Certifications**\n• **Skills & AI IDEs (Antigravity, Cursor, Copilot Studio)**\n• **Contact Details & Links**`;
+  // 9. Generic Fallback Response
+  return (
+    `I am **Leo**, Dipro's AI Assistant! I can help answer specific questions about Dipro Chowdhury's:\n\n` +
+    `• 🚀 **AI/ML Projects** (Malicious URL Detector, EchoGenius, Movie Engine)\n` +
+    `• 📜 **Certifications** (Google AI, Google Data Analytics, Vanderbilt Prompt Engineering)\n` +
+    `• 💼 **Work Experience** (Quality Engineer at LTIMindtree)\n` +
+    `• 🎓 **Education** (B.Tech CSE, 8.79 CGPA at FIEM)\n` +
+    `• 🛠️ **Skills & Tools** (Google Antigravity, Cursor, Copilot Studio, Python, Java, Selenium)\n` +
+    `• 📬 **Contact Info** (Email, Phone, LinkedIn, GitHub)`
+  );
 }
 
 export default function AIChatbot() {
@@ -172,7 +311,7 @@ export default function AIChatbot() {
       };
       setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
-    }, 550);
+    }, 450);
   };
 
   const handleClearHistory = () => {
