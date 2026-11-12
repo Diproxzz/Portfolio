@@ -128,15 +128,21 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                 <span>Return to Portfolio</span>
               </button>
 
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center gap-2 min-h-[44px]"
-              >
-                <Github className="w-4 h-4 text-cyan-400" />
-                <span>View GitHub Repository</span>
-              </a>
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors flex items-center gap-2 min-h-[44px]"
+                >
+                  <Github className="w-4 h-4 text-cyan-400" />
+                  <span>View GitHub Repository</span>
+                </a>
+              ) : (
+                <span className="px-4 py-2.5 rounded-xl text-xs font-mono font-semibold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60">
+                  Enterprise Internal Tool
+                </span>
+              )}
             </div>
 
           </div>

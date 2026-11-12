@@ -1,9 +1,45 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FolderGit2, ShieldCheck, Mic, Film, Github, ExternalLink, Sparkles, ArrowUpRight } from 'lucide-react';
+import { FolderGit2, ShieldCheck, Mic, Film, FileText, Presentation, Github, ExternalLink, Sparkles, ArrowUpRight, Building2 } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
 const projects = [
+  {
+    id: 'brd-generator',
+    title: 'AI BRD Generator',
+    subtitle: 'Enterprise Requirement Spec Engine',
+    icon: FileText,
+    color: 'from-cyan-400 via-blue-500 to-indigo-600',
+    shortDescription: 'Designed using vibe-coding at LTIMindtree to automate Business Requirement Document generation from raw client stakeholder notes.',
+    fullDescription: 'An enterprise productivity tool designed and implemented during industry work at LTIMindtree using vibe-coding. It transforms ambiguous stakeholder discussions, project briefs, and feature requests into fully structured Business Requirement Documents (BRDs), complete with scope, functional specs, user stories, and acceptance criteria.',
+    metric: 'Enterprise Tool',
+    metricLabel: 'Industry Vibe-Coded Accelerator',
+    tech: ['Generative AI', 'Vibe Coding', 'Prompt Engineering', 'LLM Automation', 'Productivity'],
+    highlights: [
+      'Converts unstructured client inputs into standardized enterprise-grade BRD specifications',
+      'Automates user story drafting, edge-case identification, and functional scope breakdowns',
+      'Significantly compresses turnaround time for business analysts and engineering squads'
+    ],
+    github: null
+  },
+  {
+    id: 'ppt-generator',
+    title: 'AI Presentation Generator',
+    subtitle: 'Automated Slide Deck Synthesis',
+    icon: Presentation,
+    color: 'from-indigo-500 via-purple-500 to-pink-500',
+    shortDescription: 'Vibe-coded slide generation tool at LTIMindtree converting project summaries into executive-ready structured presentations.',
+    fullDescription: 'Designed and built at LTIMindtree via vibe-coding to generate polished, executive-ready PowerPoint presentations directly from technical project outlines, release updates, or client requirements. Eliminates manual deck formatting by dynamically organizing slides, bullet hierarchies, and executive summaries.',
+    metric: 'Executive Decks',
+    metricLabel: 'Automated Slide Deck Generation',
+    tech: ['Generative AI', 'Vibe Coding', 'Presentation Synthesis', 'Workflow Automation'],
+    highlights: [
+      'Transforms complex technical workflows into structured slide narratives and executive overviews',
+      'Automates multi-slide layout structuring, key metrics presentation, and summary takeaways',
+      'Built through rapid vibe-coding methodology to accelerate client demo deliverables'
+    ],
+    github: null
+  },
   {
     id: 'malicious-url',
     title: 'Malicious URL Detector',
@@ -151,15 +187,21 @@ export default function Projects() {
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
 
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors border border-slate-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
-                      aria-label={`View ${project.title} repository on GitHub`}
-                    >
-                      <Github className="w-4 h-4 text-cyan-400" />
-                    </a>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors border border-slate-700 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`View ${project.title} repository on GitHub`}
+                      >
+                        <Github className="w-4 h-4 text-cyan-400" />
+                      </a>
+                    ) : (
+                      <span className="text-[11px] font-mono font-medium text-cyan-400/80 px-2.5 py-1 rounded-lg bg-cyan-950/40 border border-cyan-800/40">
+                        Enterprise Internal
+                      </span>
+                    )}
                   </div>
                 </div>
               </motion.div>

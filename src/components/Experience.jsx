@@ -12,9 +12,9 @@ const experiences = [
     description: 'Serving as a Quality Engineer with direct hands-on involvement in automation testing framework execution and Generative AI proof-of-concept initiatives.',
     achievements: [
       {
-        icon: TestTube2,
-        title: 'Automation Testing & Sprint Deliveries',
-        text: 'Completed intensive 2.5-month training in Automation Testing (Java, Selenium WebDriver, Cucumber BDD framework), actively contributing to test case design, automation scripts, and execution for major client platforms including TATA 1mg and Alfred Health within Agile sprints.'
+        icon: Sparkles,
+        title: 'Generative AI & Vibe-Coding Solutions',
+        text: 'Architected and built internal productivity accelerators including a Business Requirement Document (BRD) Generator and an automated PowerPoint Presentation Generator via vibe-coding, streamlining requirement gathering and executive deck creation.'
       },
       {
         icon: Bot,
@@ -25,9 +25,14 @@ const experiences = [
         icon: Video,
         title: 'AI Avatar Video Creation',
         text: 'Leveraged Synthesia AI avatar video generation technology to produce high-impact AI-generated training modules and stakeholder presentations, accelerating knowledge transfer and onboarding.'
+      },
+      {
+        icon: TestTube2,
+        title: 'Automation Testing & Sprint Deliveries',
+        text: 'Completed intensive 2.5-month training in Automation Testing (Java, Selenium WebDriver, Cucumber BDD framework), actively contributing to test case design, automation scripts, and execution for major client platforms including TATA 1mg and Alfred Health within Agile sprints.'
       }
     ],
-    techTags: ['Java', 'Selenium', 'Cucumber', 'Microsoft Copilot Studio', 'Synthesia', 'TestNG', 'Agile']
+    techTags: ['BRD Generator', 'PowerPoint Gen', 'Vibe Coding', 'Microsoft Copilot Studio', 'Synthesia', 'Java', 'Selenium', 'Cucumber', 'TestNG', 'Agile']
   }
 ];
 

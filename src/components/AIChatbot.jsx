@@ -24,17 +24,33 @@ const DIPRO_KNOWLEDGE = {
   aiTools: [
     "Google Antigravity IDE (Agentic AI Applications)",
     "Cursor AI Code Editor",
+    "Vibe Coding Methodology",
     "Microsoft Copilot Studio (AI Chatbots & Workflows)",
     "Synthesia (AI Avatar Video Generation)",
     "Prompt Engineering (Vanderbilt Certified)"
   ],
   skills: {
+    agentic: ["Agentic LangGraph", "LangChain", "FastAPI", "RAG", "Vectorless RAG", "RAG Evaluation (LangSmith)", "Model Context Protocol (MCP)", "LLM Gateway", "LLM Guardrails", "Deep Agents"],
     languages: ["Python", "Java", "C", "HTML", "CSS", "SQL"],
     aiml: ["LSTM RNN", "NLP", "Deep Learning", "Data Preprocessing", "Recommendation Systems", "Feature Engineering", "Cosine Similarity"],
     testing: ["Selenium WebDriver", "Cucumber BDD", "TestNG", "Maven", "Automation Testing"],
     analytics: ["Tableau", "Data Cleaning", "Exploratory Data Analysis"]
   },
   projects: [
+    {
+      name: "AI BRD Generator",
+      tech: "Generative AI, Vibe Coding, Prompt Engineering, LLM Automation",
+      metric: "Enterprise Accelerator",
+      desc: "Designed via vibe-coding at LTIMindtree to transform stakeholder briefs into comprehensive Business Requirement Documents.",
+      link: null
+    },
+    {
+      name: "AI Presentation Generator",
+      tech: "Generative AI, Vibe Coding, Slide Synthesis",
+      metric: "Executive Decks",
+      desc: "Designed via vibe-coding at LTIMindtree to automate executive-ready PowerPoint decks from technical outlines.",
+      link: null
+    },
     {
       name: "Malicious URL Detector",
       tech: "Python, PyTorch/TF, LSTM RNN, Deep Learning",
@@ -68,18 +84,68 @@ const DIPRO_KNOWLEDGE = {
 };
 
 const SUGGESTED_QUESTIONS = [
+  "What agentic AI & LLM skills does he have?",
   "Tell me about his AI/ML projects",
-  "What certifications does he have?",
+  "What vibe-coded tools did he build at LTM?",
   "What is Dipro's work experience?",
-  "What AI tools & IDEs does he use?",
-  "What is his education & CGPA?",
+  "What certifications does he have?",
   "How can I contact Dipro?"
 ];
 
 function generateBotResponse(userInput) {
   const query = userInput.toLowerCase().trim();
 
-  // 1. Projects Intent (Check BEFORE general phrase matchers like 'tell me about')
+  // 1. Agentic AI, LLM Systems, LangGraph, RAG, FastAPI Intent
+  if (
+    query.includes('langgraph') ||
+    query.includes('langchain') ||
+    query.includes('fastapi') ||
+    query.includes('rag') ||
+    query.includes('vectorless') ||
+    query.includes('langsmith') ||
+    query.includes('mcp') ||
+    query.includes('model context protocol') ||
+    query.includes('gateway') ||
+    query.includes('guardrail') ||
+    query.includes('deep agent') ||
+    query.includes('agentic')
+  ) {
+    return (
+      `🧠 **Agentic AI & Advanced LLM Expertise:**\n\n` +
+      `Dipro has deep knowledge and hands-on skills in production-grade LLM architectures:\n\n` +
+      `• **Agentic LangGraph & LangChain:** Multi-agent orchestration, state graphs, and cyclical agent decision loops.\n` +
+      `• **Deep Agents & Autonomous Reasoning:** Building goal-directed agents that plan, self-reflect, and invoke tools.\n` +
+      `• **RAG & Vectorless RAG:** End-to-end Retrieval-Augmented Generation, chunking strategies, hybrid search, and vectorless graph retrieval.\n` +
+      `• **RAG Evaluation with LangSmith:** Tracing, dataset benchmarking, and measuring faithfulness & context relevance.\n` +
+      `• **FastAPI:** Building async, low-latency API microservices and LLM endpoints.\n` +
+      `• **MCP (Model Context Protocol):** Standardized tool integration, resource sharing, and client-server LLM context.\n` +
+      `• **LLM Gateway & Guardrails:** Intelligent prompt routing, fallbacks, rate limiting, and output safety guardrails against hallucinations and jailbreaks.`
+    );
+  }
+
+  // 2. Vibe-coded tools (BRD Generator, PPT Generator)
+  if (
+    query.includes('brd') ||
+    query.includes('powerpoint') ||
+    query.includes('ppt') ||
+    query.includes('presentation generator') ||
+    query.includes('vibe') ||
+    query.includes('vibe-coding') ||
+    query.includes('vibe coding')
+  ) {
+    return (
+      `⚡ **Vibe-Coded Tools Developed at LTIMindtree:**\n\n` +
+      `During his role at LTIMindtree, Dipro applied vibe-coding to build high-impact internal productivity solutions:\n\n` +
+      `1. **AI BRD Generator:**\n` +
+      `   • Transforms raw client notes and stakeholder discussions into structured Business Requirement Documents (BRDs).\n` +
+      `   • Generates user stories, functional scopes, acceptance criteria, and edge-case definitions.\n\n` +
+      `2. **AI PowerPoint Presentation Generator:**\n` +
+      `   • Converts technical project outlines and summaries into executive-ready slide presentations.\n` +
+      `   • Automates slide narrative flow, bullet hierarchies, and executive takeaways for client deliverables.`
+    );
+  }
+
+  // 3. Projects Intent (Check BEFORE general phrase matchers like 'tell me about')
   if (
     query.includes('project') ||
     query.includes('url') ||
@@ -93,22 +159,24 @@ function generateBotResponse(userInput) {
     query.includes('portfolio projects')
   ) {
     return (
-      `🚀 **Key AI/ML Projects by Dipro Chowdhury:**\n\n` +
-      `1. **Malicious URL Detector (99% Accuracy)**\n` +
+      `🚀 **Key AI/ML & GenAI Projects by Dipro Chowdhury:**\n\n` +
+      `1. **AI BRD Generator (Enterprise Tool @ LTM)**\n` +
+      `   • Vibe-coded solution generating comprehensive Business Requirement Documents from client briefs.\n\n` +
+      `2. **AI Presentation Generator (Enterprise Tool @ LTM)**\n` +
+      `   • Vibe-coded tool generating executive-ready PowerPoint decks from technical outlines.\n\n` +
+      `3. **Malicious URL Detector (99% Accuracy)**\n` +
       `   • Deep Learning LSTM RNN neural network classifying phishing & malware links in real-time.\n` +
-      `   • Built with Python, PyTorch/TensorFlow, and character-level tokenization.\n` +
       `   • Repository: [github.com/Diproxzz/URL-checker](https://github.com/Diproxzz/URL-checker)\n\n` +
-      `2. **EchoGenius AI Voice Assistant (98% Recognition)**\n` +
+      `4. **EchoGenius AI Voice Assistant (98% Recognition)**\n` +
       `   • Modular AI voice assistant with an extensible NLP command pipeline.\n` +
-      `   • Listens, parses, and executes desktop & web tasks with low latency.\n` +
       `   • Repository: [github.com/Diproxzz/EchoGenius](https://github.com/Diproxzz/EchoGenius)\n\n` +
-      `3. **Movie Recommendation System**\n` +
+      `5. **Movie Recommendation System**\n` +
       `   • Content-based filtering engine analyzing TMDB metadata using CountVectorizer & Cosine Similarity distance matrices.\n` +
       `   • Repository: [github.com/Diproxzz/Movie-Recommendation-System](https://github.com/Diproxzz/Movie-Recommendation-System)`
     );
   }
 
-  // 2. Certifications & Credentials Intent
+  // 4. Certifications & Credentials Intent
   if (
     query.includes('certif') ||
     query.includes('course') ||
@@ -131,7 +199,7 @@ function generateBotResponse(userInput) {
     );
   }
 
-  // 3. Work Experience / Role / LTIMindtree / Job Intent
+  // 5. Work Experience / Role / LTIMindtree / Job Intent
   if (
     query.includes('experience') ||
     query.includes('job') ||
@@ -148,13 +216,14 @@ function generateBotResponse(userInput) {
     return (
       `💼 **Work Experience at LTIMindtree (LTM):**\n\n` +
       `• **Position:** Quality Engineer (Kolkata, India • Sep 2025 – Present)\n` +
-      `• **Automation Testing:** Completed 2.5-month intensive training in Java, Selenium, Cucumber BDD, TestNG, and Maven, contributing to test design & execution for **TATA 1mg** and **Alfred Health** in Agile sprints.\n` +
-      `• **Generative AI Work:** Built and deployed automated AI chatbots with **Microsoft Copilot Studio** and produced AI training videos using **Synthesia** avatar technology.\n` +
-      `• **AI IDE Integration:** Leverages **Google Antigravity IDE** and **Cursor AI Code Editor** for vibe coding and rapid prototyping.`
+      `• **Generative AI & Vibe-Coding:** Designed a **BRD Generator** and a **PowerPoint Presentation Generator** using vibe-coding, accelerating business analysis and executive deliverables.\n` +
+      `• **AI Chatbots & Avatars:** Deployed intelligent chatbots using **Microsoft Copilot Studio** and created stakeholder training videos with **Synthesia** AI avatars.\n` +
+      `• **Automation Testing:** Completed intensive 2.5-month training in Java, Selenium WebDriver, Cucumber BDD, TestNG, and Maven, testing platforms for **TATA 1mg** and **Alfred Health** in Agile sprints.\n` +
+      `• **Modern AI Tooling:** Daily use of **Google Antigravity IDE** and **Cursor** for rapid agentic prototyping and vibe coding.`
     );
   }
 
-  // 4. Education / College / Degree / Marks / CGPA Intent
+  // 6. Education / College / Degree / Marks / CGPA Intent
   if (
     query.includes('education') ||
     query.includes('college') ||
@@ -177,7 +246,7 @@ function generateBotResponse(userInput) {
     );
   }
 
-  // 5. Skills & AI Tools Intent
+  // 7. Skills & AI Tools Intent
   if (
     query.includes('skill') ||
     query.includes('language') ||
@@ -195,14 +264,15 @@ function generateBotResponse(userInput) {
   ) {
     return (
       `🛠️ **Technical Skills & Tools:**\n\n` +
+      `• **Agentic AI & LLMs:** Agentic LangGraph, LangChain, FastAPI, RAG, Vectorless RAG, LangSmith Evaluation, MCP, LLM Gateway, LLM Guardrails, Deep Agents\n` +
+      `• **AI IDEs & Vibe Coding:** Google Antigravity IDE, Cursor AI Code Editor, Vibe Coding, Microsoft Copilot Studio, Synthesia\n` +
       `• **Programming Languages:** Python, Java, C, HTML, CSS, SQL\n` +
-      `• **AI & Machine Learning:** LSTM RNN, NLP, Deep Learning, Feature Engineering, Cosine Similarity, Scikit-Learn, PyTorch/TensorFlow\n` +
-      `• **AI IDEs & GenAI Tools:** Google Antigravity IDE, Cursor AI Code Editor, Microsoft Copilot Studio, Synthesia\n` +
+      `• **AI & Machine Learning:** LSTM RNN, NLP, Deep Learning, Recommendation Systems, Feature Engineering, Scikit-Learn, PyTorch/TensorFlow\n` +
       `• **Testing & Automation:** Selenium WebDriver, Cucumber BDD, TestNG, Maven, Agile`
     );
   }
 
-  // 6. Contact / Email / Phone / Links Intent
+  // 8. Contact / Email / Phone / Links Intent
   if (
     query.includes('contact') ||
     query.includes('email') ||
@@ -224,12 +294,12 @@ function generateBotResponse(userInput) {
     );
   }
 
-  // 7. Age Query (Explicit)
+  // 9. Age Query (Explicit)
   if (query.includes('age') || query.includes('how old') || query.includes('years old')) {
-    return `Dipro Chowdhury is **23 years old**, based in Kolkata, India. He works as a Quality Engineer at LTIMindtree (LTM) while building advanced AI/ML applications!`;
+    return `Dipro Chowdhury is **23 years old**, based in Kolkata, India. He works as a Quality Engineer at LTIMindtree (LTM) while building advanced AI/ML & Agentic LLM applications!`;
   }
 
-  // 8. General Background / Overview / Who is Dipro (Checked AFTER specific topics)
+  // 10. General Background / Overview / Who is Dipro (Checked AFTER specific topics)
   if (
     query.includes('who is') ||
     query.includes('background') ||
@@ -245,18 +315,19 @@ function generateBotResponse(userInput) {
     return (
       `**Dipro Chowdhury** is a Software Engineer & Quality Engineer at **LTIMindtree (LTM)** in Kolkata, India.\n\n` +
       `He holds a **B.Tech in Computer Science & Engineering (8.79 CGPA)** from Future Institute of Engineering & Management.\n\n` +
-      `He specializes in **AI/ML**, **Generative AI**, and **Automation Testing**. He works with tools like **Google Antigravity IDE**, **Cursor**, **Microsoft Copilot Studio**, **Synthesia**, **Python**, **LSTM RNNs**, and **Selenium**!`
+      `He specializes in **Agentic AI** (LangGraph, Deep Agents, RAG, MCP, LangSmith, FastAPI), **Generative AI & Vibe Coding** (AI BRD & PPT generators, Copilot Studio, Synthesia), and **Modern AI IDEs** (**Google Antigravity IDE** & **Cursor**)!`
     );
   }
 
-  // 9. Generic Fallback Response
+  // 11. Generic Fallback Response
   return (
     `I am **Leo**, Dipro's AI Assistant! I can help answer specific questions about Dipro Chowdhury's:\n\n` +
-    `• 🚀 **AI/ML Projects** (Malicious URL Detector, EchoGenius, Movie Engine)\n` +
+    `• 🧠 **Agentic AI & LLMs** (LangGraph, FastAPI, RAG, Vectorless RAG, LangSmith, MCP, Guardrails, Deep Agents)\n` +
+    `• ⚡ **Vibe-Coded Tools** (AI BRD Generator & PowerPoint Generator at LTM)\n` +
+    `• 🚀 **AI/ML Projects** (Malicious URL Detector, EchoGenius, Movie Recommendation Engine)\n` +
+    `• 💼 **Work Experience** (Quality Engineer & GenAI developer at LTIMindtree)\n` +
     `• 📜 **Certifications** (Google AI, Google Data Analytics, Vanderbilt Prompt Engineering)\n` +
-    `• 💼 **Work Experience** (Quality Engineer at LTIMindtree)\n` +
     `• 🎓 **Education** (B.Tech CSE, 8.79 CGPA at FIEM)\n` +
-    `• 🛠️ **Skills & Tools** (Google Antigravity, Cursor, Copilot Studio, Python, Java, Selenium)\n` +
     `• 📬 **Contact Info** (Email, Phone, LinkedIn, GitHub)`
   );
 }

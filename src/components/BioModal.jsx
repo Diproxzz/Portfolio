@@ -155,8 +155,9 @@ export default function BioModal({ isOpen, onClose }) {
                 </h3>
                 <ul className="space-y-2 text-slate-300 list-disc list-inside leading-relaxed">
                   <li><strong>LTIMindtree (LTM):</strong> Quality Engineer working on automation testing (Selenium, Java, Cucumber) for TATA 1mg & Alfred Health.</li>
+                  <li><strong>Vibe-Coding Solutions:</strong> Designed and deployed an automated Business Requirement Document (BRD) Generator and a PowerPoint Presentation Generator using vibe-coding techniques.</li>
                   <li><strong>GenAI Innovation:</strong> Built automated AI chatbots using <strong>Microsoft Copilot Studio</strong> and AI videos with <strong>Synthesia</strong> avatar tech.</li>
-                  <li><strong>AI IDEs & Tools:</strong> Experienced with <strong>Google Antigravity IDE</strong> and <strong>Cursor AI Code Editor</strong> for agentic vibe coding & rapid ML model deployment.</li>
+                  <li><strong>Agentic AI & Tools:</strong> Skilled in <strong>Agentic LangGraph, LangChain, FastAPI, RAG & Vectorless RAG, LangSmith evaluation, MCP, LLM Guardrails, Deep Agents</strong>, alongside <strong>Google Antigravity IDE</strong> and <strong>Cursor</strong>.</li>
                 </ul>
               </div>
 

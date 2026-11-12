@@ -169,9 +169,10 @@ export default function ResumeModal({ isOpen, onClose }) {
                   </span>
                 </div>
                 <ul className="mt-3 space-y-2 text-xs text-slate-300 list-disc list-inside leading-relaxed">
+                  <li>Designed and built internal enterprise accelerators including a Business Requirement Document (BRD) Generator and an automated PowerPoint Presentation Generator via vibe-coding to expedite client delivery.</li>
                   <li>Completed 2.5-month training in Automation Testing (Java, Selenium, Cucumber), contributing to test design/execution for TATA 1mg and Alfred Health platforms in Agile sprints.</li>
                   <li>Independently explored Generative AI, building and deploying AI chatbots with Microsoft Copilot Studio for automated query handling and workflow integration.</li>
-                  <li>Leveraged modern AI development environments including Google Antigravity & Cursor AI code editor for vibe coding and rapid prototyping.</li>
+                  <li>Leveraged modern AI development environments including Google Antigravity & Cursor AI code editor for vibe coding, Agentic AI, and rapid prototyping.</li>
                   <li>Created AI-generated training/stakeholder videos using Synthesia avatar technology.</li>
                 </ul>
               </div>
@@ -180,9 +181,14 @@ export default function ResumeModal({ isOpen, onClose }) {
             {/* Featured Projects */}
             <div>
               <h2 className="text-sm font-bold uppercase tracking-wider text-cyan-400 font-mono mb-3 flex items-center gap-2">
-                <Code2 className="w-4 h-4" /> Key AI/ML Projects
+                <Code2 className="w-4 h-4" /> Key AI & Agentic Solutions
               </h2>
               <div className="grid gap-3 sm:grid-cols-3">
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white text-xs">AI BRD & PPT Generators</h4>
+                  <p className="text-[11px] text-slate-400 mt-1">Enterprise vibe-coded generators automating requirement specs & slide deck creation.</p>
+                  <p className="text-[10px] font-mono text-cyan-400 mt-2">Vibe Coding, GenAI, LLM</p>
+                </div>
                 <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
                   <h4 className="font-bold text-white text-xs">Malicious URL Detector</h4>
                   <p className="text-[11px] text-slate-400 mt-1">LSTM RNN & Deep Learning model delivering 99% accuracy in phishing URL detection.</p>
@@ -193,11 +199,6 @@ export default function ResumeModal({ isOpen, onClose }) {
                   <p className="text-[11px] text-slate-400 mt-1">Modular AI voice assistant with 98% command recognition & NLP pipeline.</p>
                   <p className="text-[10px] font-mono text-cyan-400 mt-2">Python, NLP, Speech API</p>
                 </div>
-                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
-                  <h4 className="font-bold text-white text-xs">Movie Recommendation Engine</h4>
-                  <p className="text-[11px] text-slate-400 mt-1">Content-based filtering using TMDB metadata, CountVectorizer & cosine similarity.</p>
-                  <p className="text-[10px] font-mono text-cyan-400 mt-2">Python, Scikit-learn, TMDB</p>
-                </div>
               </div>
             </div>
 
@@ -207,10 +208,10 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Technical Skills & Tools
               </h2>
               <div className="grid grid-cols-2 gap-2 text-xs">
-                <div><strong className="text-white">Languages:</strong> Python, Java, C, HTML, CSS, SQL</div>
-                <div><strong className="text-white">AI/ML:</strong> LSTM RNN, NLP, Deep Learning, Feature Engineering</div>
-                <div><strong className="text-white">GenAI & AI Tools:</strong> Google Antigravity, Cursor, MS Copilot Studio, Synthesia</div>
-                <div><strong className="text-white">Testing & Analytics:</strong> Selenium, Cucumber (BDD), Tableau, TestNG, Maven</div>
+                <div><strong className="text-white">Agentic & LLMs:</strong> LangGraph, LangChain, FastAPI, RAG, Vectorless RAG, LangSmith, MCP, LLM Gateway, Guardrails, Deep Agents</div>
+                <div><strong className="text-white">AI/ML:</strong> LSTM RNN, NLP, Deep Learning, Recommendation Systems, Feature Engineering</div>
+                <div><strong className="text-white">GenAI & Tools:</strong> Google Antigravity, Cursor, Vibe Coding, MS Copilot Studio, Synthesia</div>
+                <div><strong className="text-white">Languages & QA:</strong> Python, Java, SQL, Selenium, Cucumber (BDD), TestNG, Maven</div>
               </div>
             </div>
 

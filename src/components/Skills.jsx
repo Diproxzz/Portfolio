@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Brain, Bot, TestTube, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Code, Brain, Bot, TestTube, Sparkles, CheckCircle2, Network, ShieldAlert } from 'lucide-react';
 
 const skillCategories = [
   {
-    id: 'languages',
-    title: 'Programming Languages',
-    icon: Code,
-    color: 'from-cyan-500 to-blue-600',
-    borderColor: 'border-cyan-500/30',
+    id: 'agentic',
+    title: 'Agentic AI & LLM Systems',
+    icon: Network,
+    color: 'from-cyan-400 via-blue-500 to-indigo-600',
+    borderColor: 'border-cyan-500/40',
     skills: [
-      { name: 'Python', tag: 'Core AI/ML', level: 'Advanced' },
-      { name: 'Java', tag: 'Automation', level: 'Proficient' },
-      { name: 'C', tag: 'Fundamentals', level: 'Intermediate' },
-      { name: 'HTML', tag: 'Web', level: 'Proficient' },
-      { name: 'CSS', tag: 'Web Styling', level: 'Proficient' },
-      { name: 'SQL', tag: 'Data Queries', level: 'Proficient' },
+      { name: 'Agentic LangGraph', tag: 'Stateful Multi-Agent', level: 'Specialized' },
+      { name: 'LangChain', tag: 'LLM Orchestration', level: 'Advanced' },
+      { name: 'FastAPI', tag: 'High-Performance APIs', level: 'Proficient' },
+      { name: 'RAG Architecture', tag: 'Context Retrieval', level: 'Specialized' },
+      { name: 'Vectorless RAG', tag: 'Hybrid Search / Graph', level: 'Applied' },
+      { name: 'RAG Eval (LangSmith)', tag: 'Faithfulness & Tracing', level: 'Specialized' },
+      { name: 'Model Context Protocol (MCP)', tag: 'Tool Standardization', level: 'Applied' },
+      { name: 'LLM Gateway', tag: 'Routing & Fallbacks', level: 'Applied' },
+      { name: 'LLM Guardrails', tag: 'Safety & Hallucination Defense', level: 'Applied' },
+      { name: 'Deep Agents', tag: 'Autonomous Reasoning', level: 'Specialized' },
+    ]
+  },
+  {
+    id: 'genai',
+    title: 'Generative AI & AI Tools',
+    icon: Bot,
+    color: 'from-emerald-400 to-cyan-500',
+    borderColor: 'border-emerald-500/30',
+    skills: [
+      { name: 'Google Antigravity', tag: 'AI Agentic IDE', level: 'Independent' },
+      { name: 'Cursor', tag: 'AI Code Editor', level: 'Independent' },
+      { name: 'Vibe Coding', tag: 'Rapid AI Prototyping', level: 'Industry Applied' },
+      { name: 'Microsoft Copilot Studio', tag: 'AI Chatbots & Workflows', level: 'Industry Applied' },
+      { name: 'Synthesia', tag: 'AI Avatar Video Gen', level: 'Industry Applied' },
+      { name: 'Prompt Engineering', tag: 'Vanderbilt Certified', level: 'Certified' },
     ]
   },
   {
     id: 'aiml',
-    title: 'AI & Machine Learning',
+    title: 'Machine Learning & Deep Learning',
     icon: Brain,
     color: 'from-blue-500 to-indigo-600',
     borderColor: 'border-blue-500/30',
@@ -34,17 +53,18 @@ const skillCategories = [
     ]
   },
   {
-    id: 'genai',
-    title: 'Generative AI & AI Tools',
-    icon: Bot,
-    color: 'from-emerald-400 to-cyan-500',
-    borderColor: 'border-emerald-500/30',
+    id: 'languages',
+    title: 'Programming Languages',
+    icon: Code,
+    color: 'from-cyan-500 to-blue-600',
+    borderColor: 'border-cyan-500/30',
     skills: [
-      { name: 'Google Antigravity', tag: 'AI Agentic IDE', level: 'Independent' },
-      { name: 'Cursor', tag: 'AI Code Editor', level: 'Independent' },
-      { name: 'Microsoft Copilot Studio', tag: 'AI Chatbots & Workflows', level: 'Industry Applied' },
-      { name: 'Synthesia', tag: 'AI Avatar Video Gen', level: 'Industry Applied' },
-      { name: 'Prompt Engineering', tag: 'Vanderbilt Certified', level: 'Certified' },
+      { name: 'Python', tag: 'Core AI/ML & FastAPI', level: 'Advanced' },
+      { name: 'Java', tag: 'Automation', level: 'Proficient' },
+      { name: 'C', tag: 'Fundamentals', level: 'Intermediate' },
+      { name: 'HTML', tag: 'Web', level: 'Proficient' },
+      { name: 'CSS', tag: 'Web Styling', level: 'Proficient' },
+      { name: 'SQL', tag: 'Data Queries', level: 'Proficient' },
     ]
   },
   {
@@ -89,7 +109,7 @@ export default function Skills() {
             Technical <span className="gradient-text-cyan">Skill Set</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Bridging rigorous Automation Quality Engineering with cutting-edge Machine Learning and Generative AI tools like Antigravity & Cursor.
+            Bridging rigorous Automation Quality Engineering with cutting-edge Agentic AI, LangGraph, RAG architecture, and GenAI development tools.
           </p>
 
           {/* Filter Pills */}
