@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, Sparkles, Eye, UserCheck } from 'lucide-react';
+import { Bot, Eye, UserCheck } from 'lucide-react';
 import AILogoEmblem from './AILogoEmblem';
 
 /**
@@ -52,8 +52,7 @@ export default function ProfilePhoto({ imageSrc = '/profile.png', onClickBio }) 
 
             {/* Micro Tech Floating Badge */}
             <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-[#080c14]/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-cyan-500/40 shadow-xl text-xs font-mono text-slate-200">
-              <span className="flex items-center gap-1.5 text-cyan-300 font-semibold">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
+              <span className="text-cyan-300 font-semibold">
                 Dipro Chowdhury
               </span>
               <span className="px-2 py-0.5 rounded-md bg-cyan-950/80 text-cyan-400 border border-cyan-800 text-[10px] flex items-center gap-1">

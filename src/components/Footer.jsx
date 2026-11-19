@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, Sparkles } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -13,9 +13,8 @@ export default function Footer() {
           
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
-            <span className="font-heading font-extrabold text-xl text-white tracking-tight flex items-center justify-center md:justify-start gap-1.5">
+            <span className="font-heading font-extrabold text-xl text-white tracking-tight block">
               Dipro Chowdhury
-              <Sparkles className="w-4 h-4 text-cyan-400" />
             </span>
             <p className="text-xs font-mono text-cyan-400 mt-0.5">
               Quality Engineer → AI/ML & Generative AI Engineer

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Github, Linkedin, Sparkles, Bot, BrainCircuit, Terminal } from 'lucide-react';
+import { ArrowRight, Download, Mail, Github, Linkedin, Bot, BrainCircuit, Terminal } from 'lucide-react';
 import ProfilePhoto from './ProfilePhoto';
 import ResumeModal from './ResumeModal';
 import BioModal from './BioModal';

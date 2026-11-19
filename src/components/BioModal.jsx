@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Mail, Phone, ExternalLink, Linkedin, Github, GraduationCap, Briefcase, Award, Bot, Sparkles, ArrowLeft, Code2, Cpu } from 'lucide-react';
+import { X, MapPin, Mail, Phone, ExternalLink, Linkedin, Github, GraduationCap, Briefcase, Award, Bot, ArrowLeft, Code2, Cpu } from 'lucide-react';
 
 export default function BioModal({ isOpen, onClose }) {
   const [avatarError, setAvatarError] = useState(false);
@@ -53,8 +53,7 @@ export default function BioModal({ isOpen, onClose }) {
             </button>
 
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" />
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                 Profile Bio Brief
               </span>
 

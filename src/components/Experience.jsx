@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Calendar, CheckCircle2, Sparkles, Bot, Video, TestTube2, Building2 } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, CheckCircle2, Zap, Bot, Video, TestTube2, Building2 } from 'lucide-react';
 
 const experiences = [
   {
@@ -12,7 +12,7 @@ const experiences = [
     description: 'Serving as a Quality Engineer with direct hands-on involvement in automation testing framework execution and Generative AI proof-of-concept initiatives.',
     achievements: [
       {
-        icon: Sparkles,
+        icon: Zap,
         title: 'Generative AI & Vibe-Coding Solutions',
         text: 'Architected and built internal productivity accelerators including a Business Requirement Document (BRD) Generator and an automated PowerPoint Presentation Generator via vibe-coding, streamlining requirement gathering and executive deck creation.'
       },

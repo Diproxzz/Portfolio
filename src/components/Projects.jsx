@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FolderGit2, ShieldCheck, Mic, Film, FileText, Presentation, Github, ExternalLink, Sparkles, ArrowUpRight, Building2 } from 'lucide-react';
+import { FolderGit2, ShieldCheck, Mic, Film, FileText, Presentation, Github, ExternalLink, ArrowUpRight, Building2 } from 'lucide-react';
 import ProjectModal from './ProjectModal';
 
 const projects = [

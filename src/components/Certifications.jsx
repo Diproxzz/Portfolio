@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle2, Trophy, ExternalLink, Sparkles, Eye, Bot, Database, Terminal, Cpu, Layout } from 'lucide-react';
+import { Award, CheckCircle2, Trophy, ExternalLink, Eye, Bot, Database, Terminal, Cpu, Layout, Boxes } from 'lucide-react';
 import CertificateModal from './CertificateModal';
 
 const certsAndAchievements = [
@@ -21,7 +21,7 @@ const certsAndAchievements = [
     ],
     image: '/certificates/ibm-generative-ai.jpg',
     verifyUrl: 'https://coursera.org/verify/XX4PDPMP9I7Y',
-    icon: Sparkles,
+    icon: Boxes,
     color: 'border-cyan-400/60 text-cyan-300',
     badge: 'IBM Skills Network'
   },

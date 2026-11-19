@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, User, Sparkles, RefreshCw, ChevronDown, ExternalLink } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, User, RefreshCw, ChevronDown, ExternalLink } from 'lucide-react';
 
 const DIPRO_KNOWLEDGE = {
   name: "Dipro Chowdhury",
@@ -501,7 +501,6 @@ export default function AIChatbot() {
                 <div>
                   <h3 className="font-heading font-bold text-sm text-white flex items-center gap-1.5">
                     <span>Leo</span>
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                   </h3>
                   <p className="text-[11px] font-mono text-cyan-400/90 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

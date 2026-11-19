@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, User, Cpu, Briefcase, FolderGit2, GraduationCap, Award, Mail } from 'lucide-react';
+import { Menu, X, User, Cpu, Briefcase, FolderGit2, GraduationCap, Award, Mail } from 'lucide-react';
 import AILogoEmblem from './AILogoEmblem';
 
 const navItems = [
@@ -104,11 +104,10 @@ export default function Navbar() {
             )}
 
             <div>
-              <span className="font-heading font-bold text-lg text-slate-100 tracking-tight flex items-center gap-1.5">
+              <span className="font-heading font-bold text-lg text-slate-100 tracking-tight block">
                 Dipro Chowdhury
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400 opacity-90" />
               </span>
-              <span className="text-xs text-cyan-400 font-mono block -mt-1">AI/ML Engineer</span>
+              <span className="text-xs text-cyan-400 font-mono block -mt-0.5">AI/ML Engineer</span>
             </div>
           </button>
 
