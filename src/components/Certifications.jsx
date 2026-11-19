@@ -5,6 +5,27 @@ import CertificateModal from './CertificateModal';
 
 const certsAndAchievements = [
   {
+    id: 'ibm-generative-ai',
+    title: 'Develop Generative AI Applications: Get Started',
+    issuer: 'IBM',
+    platform: 'Coursera',
+    type: 'Course Certificate',
+    category: 'Generative AI & LLMs',
+    date: 'Nov 18, 2026',
+    description: 'Authorized by IBM Skills Network (Hailey Quach & Antonio Cangiano). Mastered foundational and applied techniques to build, deploy, and engineer generative AI applications.',
+    courses: [
+      'Generative AI Foundations & Architectures',
+      'Prompt Engineering & LLM App Development',
+      'IBM Watsonx & Generative AI Model Integration',
+      'Building & Deploying Generative AI Solutions'
+    ],
+    image: '/certificates/ibm-generative-ai.jpg',
+    verifyUrl: 'https://coursera.org/verify/XX4PDPMP9I7Y',
+    icon: Sparkles,
+    color: 'border-cyan-400/60 text-cyan-300',
+    badge: 'IBM Skills Network'
+  },
+  {
     id: 'google-ai',
     title: 'Google AI Professional Certificate',
     issuer: 'Google',
@@ -157,7 +178,7 @@ export default function Certifications() {
             Certifications & <span className="gradient-text-cyan">Credentials</span>
           </h2>
           <p className="mt-3 text-slate-300 text-base leading-relaxed">
-            Verified industry certifications from Google, Vanderbilt University, Ardent Computech, freeCodeCamp, and SIH Hackathon.
+            Verified industry certifications from IBM, Google, Vanderbilt University, Ardent Computech, freeCodeCamp, and SIH Hackathon.
           </p>
         </motion.div>
 

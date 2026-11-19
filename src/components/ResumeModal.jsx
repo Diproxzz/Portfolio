@@ -116,7 +116,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 Professional Summary
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Certified in Google AI, Google Data Analytics, Vanderbilt Prompt Engineering, freeCodeCamp, and Ardent Computech AI/ML Industrial Internship. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
+                Software engineer with industry experience as a Quality Engineer at LTIMindtree (LTM), where hands-on work with Generative AI tools — Microsoft Copilot Studio and Synthesia — sparked a drive to transition into AI-focused roles. Certified in IBM Generative AI Applications, Google AI, Google Data Analytics, Vanderbilt Prompt Engineering, freeCodeCamp, and Ardent Computech AI/ML Industrial Internship. Brings a solid foundation in Machine Learning, Python, and deep learning, demonstrated through independently built projects in NLP, intelligent assistants, and recommendation systems.
               </p>
             </div>
 
@@ -126,6 +126,10 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <Award className="w-4 h-4" /> Professional Certifications & Credentials
               </h2>
               <div className="grid gap-2.5 sm:grid-cols-2 text-xs">
+                <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
+                  <h4 className="font-bold text-white">Develop Generative AI Applications: Get Started</h4>
+                  <p className="text-slate-400 text-[11px] mt-0.5">IBM • Coursera Verified (Nov 2026)</p>
+                </div>
                 <div className="p-3 bg-[#080c14]/50 border border-slate-800 rounded-xl">
                   <h4 className="font-bold text-white">Google AI Professional Certificate</h4>
                   <p className="text-slate-400 text-[11px] mt-0.5">Google • 7 Courses Specialization (Jun 2026)</p>

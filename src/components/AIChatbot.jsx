@@ -74,6 +74,7 @@ const DIPRO_KNOWLEDGE = {
     }
   ],
   certifications: [
+    "Develop Generative AI Applications: Get Started (IBM • Coursera)",
     "Google AI Professional Certificate (7 Courses)",
     "Google Data Analytics Professional Certificate (9 Courses)",
     "Prompt Engineering for ChatGPT (Vanderbilt University CS Dept.)",
@@ -180,6 +181,7 @@ function generateBotResponse(userInput) {
   if (
     query.includes('certif') ||
     query.includes('course') ||
+    query.includes('ibm') ||
     query.includes('google') ||
     query.includes('vanderbilt') ||
     query.includes('ardent') ||
@@ -190,6 +192,7 @@ function generateBotResponse(userInput) {
   ) {
     return (
       `📜 **Verified Certifications & Credentials:**\n\n` +
+      `• **Develop Generative AI Applications: Get Started:** Authorized by IBM Skills Network (Hailey Quach & Antonio Cangiano) via Coursera.\n` +
       `• **Google AI Professional Certificate:** 7-Course Specialization covering AI Fundamentals, Brainstorming, Research, Data Analysis, and App Building.\n` +
       `• **Google Data Analytics Professional Certificate:** 9-Course Specialization covering Python, SQL, Tableau, R, and Data Pipelines.\n` +
       `• **Prompt Engineering for ChatGPT:** Authorized by Vanderbilt University CS Department (Dr. Jules White).\n` +
@@ -326,7 +329,7 @@ function generateBotResponse(userInput) {
     `• ⚡ **Vibe-Coded Tools** (AI BRD Generator & PowerPoint Generator at LTM)\n` +
     `• 🚀 **AI/ML Projects** (Malicious URL Detector, EchoGenius, Movie Recommendation Engine)\n` +
     `• 💼 **Work Experience** (Quality Engineer & GenAI developer at LTIMindtree)\n` +
-    `• 📜 **Certifications** (Google AI, Google Data Analytics, Vanderbilt Prompt Engineering)\n` +
+    `• 📜 **Certifications** (IBM Generative AI, Google AI, Google Data Analytics, Vanderbilt Prompt Engineering)\n` +
     `• 🎓 **Education** (B.Tech CSE, 8.79 CGPA at FIEM)\n` +
     `• 📬 **Contact Info** (Email, Phone, LinkedIn, GitHub)`
   );

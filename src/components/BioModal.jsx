@@ -167,6 +167,7 @@ export default function BioModal({ isOpen, onClose }) {
                   <Award className="w-4 h-4 text-cyan-400" /> Key Credentials & Projects
                 </h3>
                 <ul className="space-y-2 text-slate-300 list-disc list-inside leading-relaxed">
+                  <li><strong>IBM:</strong> Develop Generative AI Applications: Get Started</li>
                   <li><strong>Google AI:</strong> 7-Course Specialization Certificate</li>
                   <li><strong>Google Data Analytics:</strong> 9-Course Specialization Certificate</li>
                   <li><strong>Vanderbilt University:</strong> Prompt Engineering for ChatGPT</li>
